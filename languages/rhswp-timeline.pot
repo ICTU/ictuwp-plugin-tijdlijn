@@ -1,0 +1,205 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: RHSWP timeline\n"
+"POT-Creation-Date: 2018-02-27 22:51+0100\n"
+"PO-Revision-Date: 2018-02-27 17:51+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: rhswp-timeline.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: rhswp-timeline.php:205
+msgctxt "labels"
+msgid "Timeline"
+msgstr ""
+
+#: rhswp-timeline.php:206
+msgctxt "labels"
+msgid "Timelines"
+msgstr ""
+
+#: rhswp-timeline.php:207
+msgctxt "labels"
+msgid "All timelines"
+msgstr ""
+
+#: rhswp-timeline.php:208
+msgctxt "labels"
+msgid "Add new"
+msgstr ""
+
+#: rhswp-timeline.php:209
+msgctxt "labels"
+msgid "Add new timeline"
+msgstr ""
+
+#: rhswp-timeline.php:210
+msgctxt "labels"
+msgid "Edit?"
+msgstr ""
+
+#: rhswp-timeline.php:211
+msgctxt "labels"
+msgid "Edit timeline"
+msgstr ""
+
+#: rhswp-timeline.php:212
+msgctxt "labels"
+msgid "New timelines"
+msgstr ""
+
+#: rhswp-timeline.php:213
+msgctxt "labels"
+msgid "Show"
+msgstr ""
+
+#: rhswp-timeline.php:214
+msgctxt "labels"
+msgid "View timeline"
+msgstr ""
+
+#: rhswp-timeline.php:215
+msgctxt "labels"
+msgid "Search timeline"
+msgstr ""
+
+#: rhswp-timeline.php:216
+msgctxt "labels"
+msgid "Not found"
+msgstr ""
+
+#: rhswp-timeline.php:217
+msgctxt "labels"
+msgid "No timelines found in trash"
+msgstr ""
+
+#: rhswp-timeline.php:218
+msgctxt "labels"
+msgid "Parent"
+msgstr ""
+
+#: rhswp-timeline.php:223
+msgid "Timeline"
+msgstr ""
+
+#: rhswp-timeline.php:299
+msgid "Documentation"
+msgstr ""
+
+#: rhswp-timeline.php:300
+msgid "Timeline documentation"
+msgstr ""
+
+#: rhswp-timeline.php:332
+msgid "Section collapse"
+msgstr ""
+
+#: rhswp-timeline.php:333 rhswp-timeline.php:425 rhswp-timeline.php:469
+msgid "Section open"
+msgstr ""
+
+#: rhswp-timeline.php:382
+msgid "URL"
+msgstr ""
+
+#: rhswp-timeline.php:383
+msgid "New Window"
+msgstr ""
+
+#: rhswp-timeline.php:384
+msgid "Are you sure?"
+msgstr ""
+
+#: rhswp-timeline.php:523
+msgctxt "ACF-labels"
+msgid "Fields for timeline"
+msgstr ""
+
+#: rhswp-timeline.php:527
+msgctxt "ACF-labels"
+msgid "Introduction"
+msgstr ""
+
+#: rhswp-timeline.php:546
+msgctxt "ACF-labels"
+msgid "Timeline"
+msgstr ""
+
+#: rhswp-timeline.php:561
+msgctxt "ACF-labels"
+msgid "Add item"
+msgstr ""
+
+#: rhswp-timeline.php:565 rhswp-timeline.php:622
+msgctxt "ACF-labels"
+msgid "Title"
+msgstr ""
+
+#: rhswp-timeline.php:584 rhswp-timeline.php:641
+msgctxt "ACF-labels"
+msgid "Intro"
+msgstr ""
+
+#: rhswp-timeline.php:603
+msgctxt "ACF-labels"
+msgid "Sub-items"
+msgstr ""
+
+#: rhswp-timeline.php:618
+msgctxt "ACF-labels"
+msgid "Add sub-item"
+msgstr ""
+
+#: rhswp-timeline.php:868 rhswp-timeline.php:912
+msgid "Select and insert timeline"
+msgstr ""
+
+#: rhswp-timeline.php:870
+msgid "Insert timeline"
+msgstr ""
+
+#: rhswp-timeline.php:905
+msgid "Select a timeline for your post"
+msgstr ""
+
+#: rhswp-timeline.php:907
+msgid "Select timeline"
+msgstr ""
+
+#: rhswp-timeline.php:914
+msgid "No timelines available"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "RHSWP timeline"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid ""
+"https://github.com/ICTU/digitale-overheid-wordpress-plugin-timelineplugin/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Insert usable and accessible timelines in your post or page"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Paul van Buuren"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://wbvb.nl"
+msgstr ""
