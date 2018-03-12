@@ -1,8 +1,6 @@
 
 jQuery.fn.timeline = function() {
   
-  
-  
     return this.each(function() {
       
         function i() {
@@ -34,7 +32,7 @@ jQuery.fn.timeline = function() {
                 var n = d.find(".timelineToggle"),
                     e = d.find(".timelineMajor"),
                     a = jQuery("html,body"),
-                    l = jQuery(this).parent().parent(".timeline");
+                    l = jQuery(this).parent().parent(".timeline-main");
                 navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/) ? window.scrollTo(0, l.offset().top - a.offset().top) : a.animate({
                     scrollTop: l.offset().top - a.offset().top,
                     scrollLeft: 0
@@ -94,4 +92,4 @@ jQuery.fn.timeline = function() {
             string_open   = timeline.toggle_open;
         i();
     });
-}, jQuery(".timeline").timeline();
+}, jQuery(".timeline-main").timeline();

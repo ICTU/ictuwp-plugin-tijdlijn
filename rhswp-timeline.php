@@ -5,8 +5,8 @@
  * Plugin Name:         RHSWP timeline
  * Plugin URI:          https://github.com/ICTU/digitale-overheid-wordpress-plugin-timelineplugin/
  * Description:         Insert usable and accessible timelines in your post or page 
- * Version:             0.2.1
- * Version description: Bugfix voor vertaling.
+ * Version:             0.2.2
+ * Version description: Container class hernoemd; betere debugging; teksten aangepast; preview aangepast.
  * Author:              Paul van Buuren
  * Author URI:          https://wbvb.nl
  * License:             GPL-2.0+
@@ -18,6 +18,11 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // disable direct access
 }
+
+if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+	define( 'RHSWP_TIMELINE_DEBUG', true );
+}
+
 
 if ( ! class_exists( 'RHSWP_timelineplugin' ) ) :
 
@@ -31,14 +36,13 @@ class RHSWP_timelineplugin {
     /**
      * @var string
      */
-    public $version = '0.2.1b';
+    public $version = '0.2.2';
 
 
     /**
      * @var timeline
      */
     public $rhswptimeline = null;
-
 
     /**
      * Init
@@ -126,14 +130,14 @@ class RHSWP_timelineplugin {
     /**
      * filter for when the CPT is previewed
      */
-    public function content_filter_for_preview($content = '') {
+    public function content_filter_for_preview( $content = '' ) {
       global $post;
     
       if ( ( RHSWP_CPT_TIMELINE == get_post_type() ) && ( is_single() ) ) {
 
         // lets go
         $this->register_frontend_style_script();
-        return $content . $this->rhswp_timeline_do_output( $post->ID );
+        return $content . '<p>' . __( 'Dit is een niet-functionele preview van deze tijdlijn. Je kunt deze het best bekijken door dit in een bericht te embedden', "rhswp-timeline" ) . '</p>' . $this->rhswp_timeline_do_output( $post->ID, true ) ;
       }
       else {
         return $content;
@@ -314,11 +318,15 @@ class RHSWP_timelineplugin {
         $infooter = false;
 
         // don't add to any admin pages
-        wp_enqueue_script( RHSWP_TIMELINE_JS_HANDLE, RHSWP_TIMELINE_ASSETS_URL . 'js/timeliner-2017.13.3.rijksoverheid.js', array( 'jquery' ), RHSWP_TIMELINE_VERSION, $infooter );
+        if ( ( defined( 'WP_DEBUG' ) && WP_DEBUG ) && ( defined( 'RHSWP_TIMELINE_DEBUG' ) && RHSWP_TIMELINE_DEBUG ) ) {
+	        wp_enqueue_script( RHSWP_TIMELINE_JS_HANDLE, RHSWP_TIMELINE_ASSETS_URL . 'js/timeliner-2017.13.3.rijksoverheid.js', array( 'jquery' ), RHSWP_TIMELINE_VERSION, $infooter );
+        } else {
+	        wp_enqueue_script( RHSWP_TIMELINE_JS_HANDLE, RHSWP_TIMELINE_ASSETS_URL . 'js/min/timeliner-2017.13.3.rijksoverheid-min.js', array( 'jquery' ), RHSWP_TIMELINE_VERSION, $infooter );
+        }
+
         wp_enqueue_style( 'rhswp-timeline-frontend', RHSWP_TIMELINE_BASE_URL . 'css/rhswp-tijdlijn-frontend.css', array(), RHSWP_TIMELINE_VERSION, $infooter );
         
         $this->localize_frontend_scripts();
-
 
       }
 
@@ -380,16 +388,16 @@ class RHSWP_timelineplugin {
     public function localize_admin_scripts() {
 
         wp_localize_script( 'timeline-admin-script', 'timeline', array(
-                'url'               => __( "URL", "rhswp-timeline" ),
-                'new_window'        => __( "New Window", "rhswp-timeline" ),
-                'confirm'           => __( "Are you sure?", "rhswp-timeline" ),
-                'ajaxurl'           => admin_url( 'admin-ajax.php' ),
-                'resize_nonce'      => wp_create_nonce( 'rhswp_timeline_resize' ),
-                'add_timeline_nonce'   => wp_create_nonce( 'rhswp_timeline_add_timeline' ),
-                'change_timeline_nonce'=> wp_create_nonce( 'rhswp_timeline_change_timeline' ),
-                'iframeurl'         => admin_url( 'admin-post.php?action=rhswp_timeline_preview' ),
-            )
-        );
+						'url'               => __( "URL", "rhswp-timeline" ),
+						'new_window'        => __( "New Window", "rhswp-timeline" ),
+						'confirm'           => __( "Are you sure?", "rhswp-timeline" ),
+						'ajaxurl'           => admin_url( 'admin-ajax.php' ),
+						'resize_nonce'      => wp_create_nonce( 'rhswp_timeline_resize' ),
+						'add_timeline_nonce'   => wp_create_nonce( 'rhswp_timeline_add_timeline' ),
+						'change_timeline_nonce'=> wp_create_nonce( 'rhswp_timeline_change_timeline' ),
+						'iframeurl'         => admin_url( 'admin-post.php?action=rhswp_timeline_preview' ),
+					)
+				);
 
     }
 
@@ -397,96 +405,123 @@ class RHSWP_timelineplugin {
     /**
      * Output the HTML
      */
-    public function rhswp_timeline_do_output($postid) {
-      
-        $timeline_id                       = 'movie-' . $postid;
-        
-        $timelineoutput_aria_id            = 'mep_7';
-        $timelineoutput_date               = get_the_date();
-        $titlestring                       = get_the_title();
-        $uniqueid                          = $this->getuniqueid( $postid );    
-        $timeline_introduction             = 'get_field bestaat niet';
-        $itemcounter                       = 0;
-        $theid                             = RHSWP_CPT_TIMELINE . '_' . $postid;
+		public function rhswp_timeline_do_output( $timelineid, $dopreview = false ) {
+			
+		  $timeline_id                       = 'timeline-' . $timelineid;
+		  $titlestring                       = get_the_title( $timelineid );
+		  $uniqueid                          = $this->getuniqueid( $timelineid );    
+		  $timeline_introduction             = '&nbsp;';
+		  $mainitemcounter                   = 0;
+			$theid                             = RHSWP_CPT_TIMELINE . '_' . $timelineid;
+			$ariahidden 											 = ' tabindex="-1" aria-expanded="false" aria-hidden="true"';
+			$timelineMajorIntro								 = 'timelineMajorIntro';
+			$timelineMinor								 		 = 'timelineMinor';
+			$cssstatus												 = '';
+		  
+		  if ( $dopreview ) {
+				$ariahidden 										 = '';
+				$timelineMajorIntro 						 = 'timelineMajorIntro_test';
+				$timelineMinor 						 			 = 'timelineMinor_test';
+				$cssstatus											 = ' preview';
+		  }
+		
+		  if ( function_exists( 'get_field' ) ) {
+		    $timeline_introduction           = get_field( 'timeline_introduction', $timelineid );
+		  }
+		  
+		  $returnstring = '<div class="timeline-main' . $cssstatus . '">';
+		  
+		  $returnstring .= '<div class="timeline-introduction"><h2>' . esc_html( $titlestring ) . '</h2>';
+		  
+		  if ( $timeline_introduction ) {
+		    $returnstring .= '<p>' . $timeline_introduction . '</p>';
+		  }
+		  $returnstring .= '</div>';
+		    
+		  if( have_rows( 'timeline_items', $timelineid ) ) {
+			  
+				if ( ! $dopreview ) {
+				  $returnstring .= '<div class="timelineToggle"> <a href="#" class="expandAll" tabindex="0">' . __( 'Section open', "rhswp-timeline" ) . '</a> </div>';
+				}		
+				
+		    while( have_rows('timeline_items', $timelineid ) ) : the_row();
 
-        if ( function_exists( 'get_field' ) ) {
-          $timeline_introduction           = get_field( 'timeline_introduction', $postid );
-        }
-        
-        $returnstring = '<div class="timeline">';
-        
-        $returnstring .= '<div class="timeline-introduction"><h2>' . esc_html( $titlestring ) . '</h2>';
-        
-        if ( $timeline_introduction ) {
-          $returnstring .= '<p>' . $timeline_introduction . '</p>';
-        }
-        $returnstring .= '</div>';
-          
-        if( have_rows('timeline_items', $postid ) ) {
-          $returnstring .= '<div class="timelineToggle"> <a href="#" class="expandAll" tabindex="0">' . __( 'Section open',      "rhswp-timeline" ) . '</a> </div>';
+		      $mainitemcounter++;
 
-          while( have_rows('timeline_items', $postid ) ) : the_row();
+		      // vars
+		      $majortimeline_title = get_sub_field('timeline_item_title');
+		      $majortimeline_intro = get_sub_field('timeline_item_intro');
+		
+		      $returnstring .= '<div class="timelineMajor">';
+					$returnstring .= '  <h2 class="timelineMajorMarker">';
+					if ( ! $dopreview ) {
+			      $returnstring .= '<a href="#" tabindex="0">';
+		      }
+		      $returnstring .= '<span>' . esc_html( $majortimeline_title ) . '</span>';
+					if ( ! $dopreview ) {
+			      $returnstring .= '</a>';
+		      }
+		      $returnstring .= '</h2>';
+		      
+		      $returnstring .= '  <div class="majorEvent"' . $ariahidden . '>';
+		
+		      if ( $majortimeline_intro ) {
+		        $returnstring .= '    <div class="' . $timelineMajorIntro . '">' . $majortimeline_intro . '</div>';
+		      }
+		
+		      if( have_rows('timeline_item_subitems', $timelineid ) ) {
 
-            $itemcounter++;
-          
-            // vars
-            $majortimeline_title = get_sub_field('timeline_item_title');
-            $majortimeline_intro = get_sub_field('timeline_item_intro');
+					  $subitemcounter                   = 0;
+		
+		        while( have_rows('timeline_item_subitems', $timelineid ) ) : the_row();
+		
+		          $subitemcounter++;
+		
+		          $sub_item_title     = get_sub_field('timeline_item_subitem_title');
+		          $sub_item_text      = get_sub_field('timeline_item_subitem_text');
+		          $sub_item_title_id  = sanitize_title( $uniqueid . '-' . $sub_item_title ) . '-' . $mainitemcounter . '-' . $subitemcounter;
+		          $sub_item_text_id   = $sub_item_title_id . '-' . $mainitemcounter . '-' . $subitemcounter;
+		
+		          $returnstring .= '    <div class="'. $timelineMinor . '">';
+		          $returnstring .= '      <div class="timelineEventHead">';
 
-            $returnstring .= '<div class="timelineMajor">';
-            $returnstring .= '  <h2 class="timelineMajorMarker"><a href="#" tabindex="0"><span>' . $majortimeline_title . '</span></a></h2>';
-            $returnstring .= '  <div class="majorEvent" tabindex="-1" aria-expanded="false" aria-hidden="true">';
+							if ( ! $dopreview ) {
+								$returnstring .= '<a href="#" tabindex="0" aria-controls="' . $sub_item_text_id . '">';
+							}
 
-            if ( $majortimeline_intro ) {
-              $returnstring .= '    <div class="timelineMajorIntro">' . $majortimeline_intro . '</div>';
-            }
+							$returnstring .= '<h3 id="' . $sub_item_title_id . '"> <span>' . esc_html( $sub_item_title ) . '</span></h3>'; 
 
-            if( have_rows('timeline_item_subitems', $postid ) ) {
-              
-              
-              while( have_rows('timeline_item_subitems', $postid ) ) : the_row();
+							if ( ! $dopreview ) {
+								$returnstring .= '</a>'; 
+							}
+							$returnstring .= '</div>'; 
 
-                $itemcounter++;
+		          $returnstring .= '      <div id="' . $sub_item_text_id . '" role="region" ' . $ariahidden . ' class="timelineEvent" aria-labelledby="' . esc_html( $sub_item_title_id ) . '">' . $sub_item_text . '</div>'; 
+		          $returnstring .= '    </div>'; //  class="timelineMinor"
+		
+		        endwhile;
+		
+		      }          
 
-                $sub_item_title     = get_sub_field('timeline_item_subitem_title');
-                $sub_item_text      = get_sub_field('timeline_item_subitem_text');
-                $sub_item_title_id  = sanitize_title( $uniqueid . '-' . $sub_item_title ) . '-' . $itemcounter;
-                $sub_item_text_id   = $sub_item_title_id . '-' . $itemcounter;
-
-                $returnstring .= '    <div class="timelineMinor">';
-                $returnstring .= '      <div class="timelineEventHead"><a href="#" tabindex="0" aria-controls="' . $sub_item_text_id . '"><h3 id="' . $sub_item_title_id . '"> <span>' . $sub_item_title . '</span></h3></a></div>'; 
-                $returnstring .= '      <div id="' . $sub_item_text_id . '" role="region" tabindex="-1" aria-expanded="false" aria-hidden="true" class="timelineEvent" aria-labelledby="' . $sub_item_title_id . '">' . $sub_item_text . '</div>'; 
-                $returnstring .= '    </div>'; //  class="timelineMinor"
-
-              endwhile;
-            }          
-
-
-            $returnstring .= '  </div>'; //  class="majorEvent"
-            $returnstring .= '</div>'; //  class="timelineMajor"
-            
-          endwhile;
-
-          $returnstring .= '<div class="timelineToggle"> <a href="#" class="expandAll" tabindex="0">' . __( 'Section open',      "rhswp-timeline" ) . '</a> </div>';
-          
-        }          
-          
-
-
-        $returnstring .= '</div>';
-        
-
-        if ( RHSWP_TIMELINE_DO_DEBUG && WP_DEBUG ) {
-  
-        }
-
-
-        return $returnstring;
-    }
+		      $returnstring .= '  </div>'; //  class="majorEvent"
+		      $returnstring .= '</div>'; //  class="timelineMajor"
+		      
+		    endwhile;
+		
+				if ( ! $dopreview ) {
+			    $returnstring .= '<div class="timelineToggle"> <a href="#" class="expandAll" tabindex="0">' . __( 'Section open',      "rhswp-timeline" ) . '</a> </div>';
+			  }         
+			   
+		  }          
+		
+		  $returnstring .= '</div>';
+		
+		  return $returnstring;
+		}
 
     //========================================================================================================
 
-    private function get_stored_values( $postid, $postkey, $defaultvalue = '' ) {
+    private function get_stored_values( $timelineid, $postkey, $defaultvalue = '' ) {
 
       if ( RHSWP_TIMELINE_DO_DEBUG ) {
         $returnstring = $defaultvalue;
@@ -495,7 +530,7 @@ class RHSWP_timelineplugin {
         $returnstring = '';
       }
 
-      $temp = get_post_meta( $postid, $postkey, true );
+      $temp = get_post_meta( $timelineid, $postkey, true );
       if ( $temp ) {
         $returnstring = $temp;
       }
@@ -750,12 +785,12 @@ class RHSWP_timelineplugin {
 
             $settings = array_merge( (array)$old_settings, $new_settings );
 
-            // update the video settings
+            // update the timeline settings
             update_post_meta( $rhswp_timeline_id, 'RHSWP_TIMELINE_settings', $settings );
 
         }
 
-        // update video title
+        // update timeline title
         if ( isset( $_POST['title'] ) ) {
 
             $timeline = array(
@@ -767,7 +802,7 @@ class RHSWP_timelineplugin {
 
         }
 
-        // update individual video
+        // update individual timeline
         if ( isset( $_POST['attachment'] ) ) {
 
             foreach ( $_POST['attachment'] as $timeline_id => $fields ) {
@@ -782,11 +817,11 @@ class RHSWP_timelineplugin {
 
 
     /**
-     * Get all videos. Returns an array of 
-     * published videos.
+     * Get all timelines. Returns an array of 
+     * published timelines.
      *
      * @param string $sort_key
-     * @return an array of published videos
+     * @return an array of published timelines
      */
     public function get_all_timelines( $sort_key = 'date' ) {
 
@@ -828,7 +863,7 @@ class RHSWP_timelineplugin {
 
 
     /**
-     * Append the 'Add video' button to selected admin pages
+     * Append the 'Add timeline' button to selected admin pages
      */
     public function admin_insert_rhwwptimeline_button( $context ) {
 
@@ -857,8 +892,11 @@ class RHSWP_timelineplugin {
         
         $allowed_post_types = array();
         
-        // to do: possibility to exclude some post types to allow for the insert video button
+        // to do: possibility to exclude some post types to allow for the insert timeline button
         foreach ( $available_post_types as $available_post_type ) {
+					if ( defined( 'RHSWP_CPT_RIJKSVIDEO' ) && $available_post_type === RHSWP_CPT_RIJKSVIDEO ) {
+						continue;
+					}
           if ( $available_post_type !== RHSWP_CPT_TIMELINE ) {
             array_push( $allowed_post_types, $available_post_type );
           }

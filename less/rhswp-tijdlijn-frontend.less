@@ -8,8 +8,8 @@
 // @author  Paul van Buuren
 // @license GPL-2.0+
 // @plugin: rhswp-timeline
-// Version: 0.1.1
-// Version desc: Eerste proefversie.
+// Version:	0.2.2
+// Desc:		Container class hernoemd; betere debugging; teksten aangepast; preview aangepast.
 // @link    https://github.com/ICTU/digitale-overheid-wordpress-plugin-timelineplugin/
 
 
@@ -52,7 +52,7 @@
 
 // ripped from 
   
-.timeline{
+.timeline-main {
   background-color:#f3f3f3;
   padding:15px 0 15px 60px;
   margin:0 -15px 40px -15px;
@@ -73,25 +73,29 @@
   }
 }
 
-.timeline h2{
+.timeline-main h2{
     margin:0;
     color:#01689b;
     margin-left:-40px
 }
-.timeline h2 span{
+.timeline-main h2 span{
     display:block;
     line-height:1.2em;
     font-size:.75em;
     font-weight:normal;
     color:#112
 }
-.timeline .timelineToggle{
+.timeline-main .timelineToggle{
     border-left:solid 0 #01689b
 }
-.timeline .timelineToggle:first-child{
+.timeline-main.preview .timelineToggle{
+	display: none;
+}
+
+.timeline-main .timelineToggle:first-child{
     padding-bottom:50px
 }
-.timeline .timelineToggle a{
+.timeline-main .timelineToggle a{
     margin-left:-40px;
     position:relative;
     background-color:#f3f3f3;
@@ -103,35 +107,39 @@
     line-height:1.4em;
     text-decoration:underline
 }
-.timeline .timelineToggle a:link{
+.timeline-main .timelineToggle a:link{
     color:#01689b
 }
-.timeline .timelineToggle:first-child{
+.timeline-main .timelineToggle:first-child{
     padding-bottom:0
 }
-.timeline .timelineToggle:first-child:after{
+.timeline-main .timelineToggle:first-child:after{
     content:" ";
     display:block;
     width:100%;
     padding-bottom:20px
 }
-.timeline .timelineMajor{
+.timeline-main .timelineMajor{
     background-color:transparent;
     border-left:solid 2px #01689b;
     margin-left:-30px
 }
-.timeline .timelineMajor:before,.timeline .timelineMajor:after{
+.timeline-main.preview .timelineMajor{
+  border-left-style: none;
+  margin-left: 0;
+}
+.timeline-main .timelineMajor:before,.timeline-main .timelineMajor:after{
     content:" ";
     display:table
 }
-.timeline .timelineMajor:after{
+.timeline-main .timelineMajor:after{
     clear:both
 }
-.timeline .timelineMajor .majorEvent:focus{
+.timeline-main .timelineMajor .majorEvent:focus{
     outline:2px solid #82befb;
     outline-offset:2px
 }
-.timeline .timelineMajor .timelineMajorMarker{
+.timeline-main .timelineMajor .timelineMajorMarker{
     margin:0 0 2px 0;
     padding:0;
     width:100%;
@@ -139,7 +147,7 @@
     font-size:1.5em;
     background-color:transparent
 }
-.timeline .timelineMajor .timelineMajorMarker a{
+.timeline-main .timelineMajor .timelineMajorMarker a{
     display:block;
     position:relative;
     color:#01689b;
@@ -148,11 +156,11 @@
     padding:23px 35px 15px 35px;
     margin:0
 }
-.js .timeline .timelineMajor .timelineMajorMarker a:hover{
+.js .timeline-main .timelineMajor .timelineMajorMarker a:hover{
     text-decoration:none;
     cursor:pointer
 }
-.js .timeline .timelineMajor .timelineMajorMarker a:before{
+.js .timeline-main .timelineMajor .timelineMajorMarker a:before{
     background-color:#fff;
     content:"";
     font-family:"RO Icons";
@@ -182,20 +190,22 @@
     transform:rotate(45deg)
 }
 @media(min-width:1200px){
-    .js .timeline .timelineMajor .timelineMajorMarker a:before{
+    .js .timeline-main .timelineMajor .timelineMajorMarker a:before{
         top:18px
     }
 }
-.js .timeline .timelineMajor .timelineMajorMarker a span{
+.js .timeline-main .timelineMajor .timelineMajorMarker a span{
     text-decoration:none;
     font-weight:bold;
     color:#01689b;
     font-size:28px
 }
-.js .timeline .timelineMajor .timelineMajorMarker a span:hover{
+.js .timeline-main .timelineMajor .timelineMajorMarker a span:hover{
     text-decoration:underline
 }
-.js .timeline .timelineMajor.open .timelineMajorMarker a:before{
+.js .timeline-main .timelineMajor.open .timelineMajorMarker a:before,
+.js .timeline-main.preview .timelineMajor .timelineMajorMarker a:before {
+
     -moz-transform:rotate(90deg);
     -webkit-transform:rotate(90deg);
     -o-transform:rotate(90deg);
@@ -203,37 +213,46 @@
     transform:rotate(90deg)
 }
 @-moz-document url-prefix(){
-    .js .timeline .timelineMajor.open .timelineMajorMarker a:before{
+    .js .timeline-main .timelineMajor.open .timelineMajorMarker a:before{
         padding:5px
     }
 }
-.timeline .timelineMajor .timelineMajorIntro{
+.timeline-main .timelineMajor .timelineMajorIntro{
     font-size:1.2em;
     display:block;
     line-height:1.4em;
     margin-top:0;
     border-top:solid 2px #f3f3f3
 }
-.js .timeline .timelineMajor .timelineMajorIntro{
+.js .timeline-main .timelineMajor .timelineMajorIntro{
     height:0;
     padding:0;
     visibility:hidden;
     overflow:hidden
 }
-.timeline .timelineMajor .timelineMinor{
+/*
+
+[aria-hidden=true] {
+	display: block;
+	border: 10px solid red;
+}
+
+*/
+
+.timeline-main .timelineMajor .timelineMinor{
     display:block;
     margin-left:-30px
 }
-.js .timeline .timelineMajor .timelineMinor{
+.js .timeline-main .timelineMajor .timelineMinor{
     height:0;
     visibility:hidden;
     overflow:hidden
 }
-.timeline .timelineMajor .timelineMinor .timelineEventHead{
+.timeline-main .timelineMajor .timelineMinor .timelineEventHead{
     position:relative;
     padding:15px 15px 0 15px
 }
-.timeline .timelineMajor .timelineMinor .timelineEventHead:before{
+.timeline-main .timelineMajor .timelineMinor .timelineEventHead:before{
     border-top:solid 3px #fff;
     width:100%;
     margin-left:50px;
@@ -242,37 +261,41 @@
     padding-bottom:20px
 }
 @media(min-width:768px){
-    .timeline .timelineMajor .timelineMinor .timelineEventHead:before{
+    .timeline-main .timelineMajor .timelineMinor .timelineEventHead:before{
         margin-left:30px
     }
 }
 @media(min-width:992px){
-    .timeline .timelineMajor .timelineMinor .timelineEventHead:before{
+    .timeline-main .timelineMajor .timelineMinor .timelineEventHead:before{
         width:103%;
         margin-left:11px
     }
 }
-.timeline .timelineMajor .timelineMinor .timelineEventHead:before,.timeline .timelineMajor .timelineMinor .timelineEventHead:after{
+.timeline-main .timelineMajor .timelineMinor .timelineEventHead:before,.timeline-main .timelineMajor .timelineMinor .timelineEventHead:after{
     content:" ";
     display:table
 }
-.timeline .timelineMajor .timelineMinor .timelineEventHead:after{
+.timeline-main .timelineMajor .timelineMinor .timelineEventHead:after{
     clear:both
 }
 @media(min-width:768px){
-    .timeline .timelineMajor .timelineMinor .timelineEventHead{
+		.timelineMinor_test,
+		.timelineMajorIntro_test,
+    .timeline-main .timelineMajor .timelineMinor .timelineEventHead{
         padding-left:35px
     }
 }
 @media(min-width:992px){
-    .timeline .timelineMajor .timelineMinor .timelineEventHead{
-        padding-left:55px
+		.timelineMinor_test,
+		.timelineMajorIntro_test,
+		.timeline-main .timelineMajor .timelineMinor .timelineEventHead {
+        padding-left: 55px
     }
 }
-.js .timeline .timelineMajor .timelineMinor .timelineEventHead{
+.js .timeline-main .timelineMajor .timelineMinor .timelineEventHead{
     background-color:transparent
 }
-.timeline .timelineMajor .timelineMinor .timelineEventHead a{
+.timeline-main .timelineMajor .timelineMinor .timelineEventHead a{
     position:relative;
     display:inline-block;
     width:100%;
@@ -281,7 +304,7 @@
     padding-left:50px;
     background-color:transparent
 }
-.timeline .timelineMajor .timelineMinor .timelineEventHead a:before{
+.timeline-main .timelineMajor .timelineMinor .timelineEventHead a:before{
     background-color:#01689b;
     content:"";
     font-family:"RO Icons";
@@ -308,27 +331,27 @@
     transform:rotate(45deg)
 }
 @media(min-width:768px){
-    .timeline .timelineMajor .timelineMinor .timelineEventHead a{
+    .timeline-main .timelineMajor .timelineMinor .timelineEventHead a{
         margin-left:-20px
     }
 }
 @media(min-width:992px){
-    .timeline .timelineMajor .timelineMinor .timelineEventHead a{
+    .timeline-main .timelineMajor .timelineMinor .timelineEventHead a{
         margin-left:-40px
     }
 }
-.timeline .timelineMajor .timelineMinor .timelineEventHead a:hover{
+.timeline-main .timelineMajor .timelineMinor .timelineEventHead a:hover{
     cursor:pointer
 }
-.timeline .timelineMajor .timelineMinor .timelineEventHead a h3{
+.timeline-main .timelineMajor .timelineMinor .timelineEventHead a h3{
     margin-left:0;
     color:#01689b
 }
-.timeline .timelineMajor .timelineMinor .timelineEventHead a h3:hover{
+.timeline-main .timelineMajor .timelineMinor .timelineEventHead a h3:hover{
     cursor:pointer;
     text-decoration:underline
 }
-.timeline .timelineMajor .timelineMinor .timelineEventHead h3{
+.timeline-main .timelineMajor .timelineMinor .timelineEventHead h3{
     color:#000;
     font-size:1.66666em;
     width:74%;
@@ -337,43 +360,43 @@
     float:left
 }
 @media(min-width:768px){
-    .timeline .timelineMajor .timelineMinor .timelineEventHead h3{
+    .timeline-main .timelineMajor .timelineMinor .timelineEventHead h3{
         margin-left:30px
     }
 }
 @media(min-width:992px){
-    .timeline .timelineMajor .timelineMinor .timelineEventHead h3{
+    .timeline-main .timelineMajor .timelineMinor .timelineEventHead h3{
         margin-left:10px
     }
 }
-.timeline .timelineMajor .timelineMinor .timelineEventHead h3 span:first-child{
+.timeline-main .timelineMajor .timelineMinor .timelineEventHead h3 span:first-child{
     font-size:24px;
     display:block;
     font-weight:bold
 }
-.timeline .timelineMajor .timelineMinor .timelineEventHead h3 span{
+.timeline-main .timelineMajor .timelineMinor .timelineEventHead h3 span{
     font-size:.75em;
     line-height:1.3em;
     font-weight:normal;
     display:block
 }
-.timeline .timelineMajor .timelineMinor .timelineEventHead .thumb{
+.timeline-main .timelineMajor .timelineMinor .timelineEventHead .thumb{
     display:none;
     max-width:17.5%;
     float:right;
     margin-right:40px
 }
 @media(min-width:768px){
-    .timeline .timelineMajor .timelineMinor .timelineEventHead .thumb{
+    .timeline-main .timelineMajor .timelineMinor .timelineEventHead .thumb{
         display:block
     }
 }
-.timeline .timelineMajor .timelineMinor .timelineEventHead .thumb p.copyright{
+.timeline-main .timelineMajor .timelineMinor .timelineEventHead .thumb p.copyright{
     position:absolute;
     bottom:-6px;
     padding-left:5px
 }
-.timeline .timelineMajor .timelineMinor .timelineEvent{
+.timeline-main .timelineMajor .timelineMinor .timelineEvent{
     margin:0 2px 0 2px;
     padding:0 15px 0 65px;
     overflow:hidden;
@@ -381,46 +404,46 @@
     display:block
 }
 @media(min-width:768px){
-    .timeline .timelineMajor .timelineMinor .timelineEvent{
+    .timeline-main .timelineMajor .timelineMinor .timelineEvent{
         padding:0 4px 0 65px
     }
 }
 @media(min-width:992px){
-    .timeline .timelineMajor .timelineMinor .timelineEvent{
+    .timeline-main .timelineMajor .timelineMinor .timelineEvent{
         padding:0 15px 0 65px
     }
 }
-.timeline .timelineMajor .timelineMinor .timelineEvent:before,.timeline .timelineMajor .timelineMinor .timelineEvent:after{
+.timeline-main .timelineMajor .timelineMinor .timelineEvent:before,.timeline-main .timelineMajor .timelineMinor .timelineEvent:after{
     content:" ";
     display:table
 }
-.timeline .timelineMajor .timelineMinor .timelineEvent:after{
+.timeline-main .timelineMajor .timelineMinor .timelineEvent:after{
     clear:both
 }
-.timeline .timelineMajor .timelineMinor .timelineEvent:focus{
+.timeline-main .timelineMajor .timelineMinor .timelineEvent:focus{
     outline:2px solid #82befb;
     outline-offset:-2px
 }
-.js .timeline .timelineMajor .timelineMinor .timelineEvent{
+.js .timeline-main .timelineMajor .timelineMinor .timelineEvent{
     visibility:hidden;
     height:0
 }
-.timeline .timelineMajor .timelineMinor .timelineEvent .media{
+.timeline-main .timelineMajor .timelineMinor .timelineEvent .media{
     display:none;
     float:right;
     margin:10px 0 10px 20px
 }
 @media(min-width:768px){
-    .timeline .timelineMajor .timelineMinor .timelineEvent .media{
+    .timeline-main .timelineMajor .timelineMinor .timelineEvent .media{
         display:block
     }
 }
-.timeline .timelineMajor .timelineMinor .timelineEvent .media img{
+.timeline-main .timelineMajor .timelineMinor .timelineEvent .media img{
     margin:0;
     width:100%;
     max-width:230px
 }
-.timeline .timelineMajor .timelineMinor .timelineEvent .media p.copyright{
+.timeline-main .timelineMajor .timelineMinor .timelineEvent .media p.copyright{
     position:relative;
     margin-bottom:0;
     padding:1px 0 0 0;
@@ -428,54 +451,54 @@
     color:#000;
     max-width:220px
 }
-.timeline .timelineMajor .timelineMinor .timelineEvent .media p.cite{
+.timeline-main .timelineMajor .timelineMinor .timelineEvent .media p.cite{
     font-size:.8em;
     max-width:220px
 }
-.timeline .timelineMajor .timelineMinor .timelineEvent .scrollcontainer{
+.timeline-main .timelineMajor .timelineMinor .timelineEvent .scrollcontainer{
     clear:both
 }
-.timeline .timelineMajor .timelineMinor .timelineEvent .block-audio-video{
+.timeline-main .timelineMajor .timelineMinor .timelineEvent .block-audio-video{
     float:left;
     margin-bottom:20px;
     margin-top:10px;
     width:100%
 }
-.timeline .timelineMajor .timelineMinor .timelineEvent .block-audio-video .collapsiblePanels{
+.timeline-main .timelineMajor .timelineMinor .timelineEvent .block-audio-video .collapsiblePanels{
     border-bottom:1px solid #fff
 }
-.timeline .timelineMajor .timelineMinor.open .timelineEventHead{
+.timeline-main .timelineMajor .timelineMinor.open .timelineEventHead{
     background-color:transparent
 }
-.timeline .timelineMajor .timelineMinor.open .timelineEventHead a:after{
+.timeline-main .timelineMajor .timelineMinor.open .timelineEventHead a:after{
     transform:rotate(90deg)
 }
-.timeline .timelineMajor .timelineMinor.open .timelineEvent{
+.timeline-main .timelineMajor .timelineMinor.open .timelineEvent{
     height:auto;
     visibility:visible
 }
-.timeline .timelineMajor .timelineMinor.open .thumb{
+.timeline-main .timelineMajor .timelineMinor.open .thumb{
     display:none
 }
-.timeline .timelineMajor.open .timelineMajorMarker{
+.timeline-main .timelineMajor.open .timelineMajorMarker{
     background-color:transparent;
     border-bottom:solid 0 #f3f3f3
 }
-.timeline .timelineMajor.open .timelineMinor{
+.timeline-main .timelineMajor.open .timelineMinor{
     height:auto;
     visibility:visible
 }
-.timeline .timelineMajor.open .timelineMajorIntro{
+.timeline-main .timelineMajor.open .timelineMajorIntro{
     height:auto;
     visibility:visible;
     padding:0 55px 20px 35px
 }
 @media(min-width:992px){
-    .timeline .timelineMajor.open .timelineMajorIntro{
+    .timeline-main .timelineMajor.open .timelineMajorIntro{
         margin-top:-10px
     }
 }
-.timeline .timelineMajor.open .timelineMinor.open .timelineEventHead a:before{
+.timeline-main .timelineMajor.open .timelineMinor.open .timelineEventHead a:before{
     -moz-transform:rotate(0deg);
     -webkit-transform:rotate(0deg);
     -o-transform:rotate(0deg);
