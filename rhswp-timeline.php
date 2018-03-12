@@ -5,8 +5,8 @@
  * Plugin Name:         RHSWP timeline
  * Plugin URI:          https://github.com/ICTU/digitale-overheid-wordpress-plugin-timelineplugin/
  * Description:         Insert usable and accessible timelines in your post or page 
- * Version:             0.1.1
- * Version description: Eerste proefversie.
+ * Version:             0.2.1
+ * Version description: Bugfix voor vertaling.
  * Author:              Paul van Buuren
  * Author URI:          https://wbvb.nl
  * License:             GPL-2.0+
@@ -31,7 +31,7 @@ class RHSWP_timelineplugin {
     /**
      * @var string
      */
-    public $version = '0.1.1b';
+    public $version = '0.2.1b';
 
 
     /**
@@ -175,7 +175,6 @@ class RHSWP_timelineplugin {
     private function setup_actions() {
 
         add_action( 'init', array( $this, 'register_post_type' ) );
-        add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
         add_action( 'admin_footer', array( $this, 'admin_footer' ), 11 );
 
     }
@@ -202,20 +201,20 @@ class RHSWP_timelineplugin {
 
     	$labels = array(
     		"name"                  => "tijdlijnen",
-    		"singular_name"         => _x( "Timeline", 'labels', "rhswp-timeline" ),
-    		"menu_name"             => _x( "Timelines", 'labels', "rhswp-timeline" ),
-    		"all_items"             => _x( "All timelines", 'labels', "rhswp-timeline" ),
-    		"add_new"               => _x( "Add new", 'labels', "rhswp-timeline" ),
-    		"add_new_item"          => _x( "Add new timeline", 'labels', "rhswp-timeline" ),
-    		"edit"                  => _x( "Edit?", 'labels', "rhswp-timeline" ),
-    		"edit_item"             => _x( "Edit timeline", 'labels', "rhswp-timeline" ),
-    		"new_item"              => _x( "New timelines", 'labels', "rhswp-timeline" ),
-    		"view"                  => _x( "Show", 'labels', "rhswp-timeline" ),
-    		"view_item"             => _x( "View timeline", 'labels', "rhswp-timeline" ),
-    		"search_items"          => _x( "Search timeline", 'labels', "rhswp-timeline" ),
-    		"not_found"             => _x( "Not found", 'labels', "rhswp-timeline" ),
-    		"not_found_in_trash"    => _x( "No timelines found in trash", 'labels', "rhswp-timeline" ),
-    		"parent"                => _x( "Parent", 'labels', "rhswp-timeline" ),
+    		"singular_name"         => _x( "Timeline", "labels", "rhswp-timeline" ),
+    		"menu_name"             => _x( "Timelines", "labels", "rhswp-timeline" ),
+    		"all_items"             => _x( "All timelines", "labels", "rhswp-timeline" ),
+    		"add_new"               => _x( "Add new", "labels", "rhswp-timeline" ),
+    		"add_new_item"          => _x( "Add new timeline", "labels", "rhswp-timeline" ),
+    		"edit"                  => _x( "Edit?", "labels", "rhswp-timeline" ),
+    		"edit_item"             => _x( "Edit timeline", "labels", "rhswp-timeline" ),
+    		"new_item"              => _x( "New timelines", "labels", "rhswp-timeline" ),
+    		"view"                  => _x( "Show", "labels", "rhswp-timeline" ),
+    		"view_item"             => _x( "View timeline", "labels", "rhswp-timeline" ),
+    		"search_items"          => _x( "Search timeline", "labels", "rhswp-timeline" ),
+    		"not_found"             => _x( "Not found", "labels", "rhswp-timeline" ),
+    		"not_found_in_trash"    => _x( "No timelines found in trash", "labels", "rhswp-timeline" ),
+    		"parent"                => _x( "Parent", "labels", "rhswp-timeline" ),
     		);
     
     	$args = array(
@@ -281,8 +280,10 @@ class RHSWP_timelineplugin {
     /**
      * Initialise translations
      */
-    public function load_plugin_textdomain() {
-      load_plugin_textdomain( "rhswp-timeline", false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+    public function rhswp_timeline_load_plugin_textdomain() {
+
+			load_plugin_textdomain( "rhswp-timeline", false, basename( dirname( __FILE__ ) ) . '/languages/' );
+
     }
 
 
@@ -520,11 +521,11 @@ class RHSWP_timelineplugin {
       
       acf_add_local_field_group(array(
       	'key' => 'group_5a95987117a26',
-      	'title' => _x( "Fields for timeline", 'ACF-labels', "rhswp-timeline" ),
+      	'title' => _x( "Fields for timeline", "ACF-labels", "rhswp-timeline" ),
       	'fields' => array(
       		array(
       			'key' => 'field_5a9598d291372',
-      			'label' => _x( "Introduction", 'ACF-labels', "rhswp-timeline" ),
+      			'label' => _x( "Introduction", "ACF-labels", "rhswp-timeline" ),
       			'name' => 'timeline_introduction',
       			'type' => 'textarea',
       			'instructions' => '',
@@ -543,7 +544,7 @@ class RHSWP_timelineplugin {
       		),
       		array(
       			'key' => 'field_5a95a69b2cd46',
-      			'label' => _x( "Timeline", 'ACF-labels', "rhswp-timeline" ),
+      			'label' => _x( "Timeline", "ACF-labels", "rhswp-timeline" ),
       			'name' => 'timeline_items',
       			'type' => 'repeater',
       			'instructions' => '',
@@ -558,11 +559,11 @@ class RHSWP_timelineplugin {
       			'min' => 0,
       			'max' => 0,
       			'layout' => 'row',
-      			'button_label' => _x( "Add item", 'ACF-labels', "rhswp-timeline" ),
+      			'button_label' => _x( "Add item", "ACF-labels", "rhswp-timeline" ),
       			'sub_fields' => array(
       				array(
       					'key' => 'field_5a95a6b42cd47',
-      					'label' => _x( "Title", 'ACF-labels', "rhswp-timeline" ),
+      					'label' => _x( "Title", "ACF-labels", "rhswp-timeline" ),
       					'name' => 'timeline_item_title',
       					'type' => 'text',
       					'instructions' => '',
@@ -581,7 +582,7 @@ class RHSWP_timelineplugin {
       				),
       				array(
       					'key' => 'field_5a95c124067da',
-      					'label' => _x( "Intro", 'ACF-labels', "rhswp-timeline" ),
+      					'label' => _x( "Intro", "ACF-labels", "rhswp-timeline" ),
       					'name' => 'timeline_item_intro',
       					'type' => 'wysiwyg',
       					'instructions' => '',
@@ -600,7 +601,7 @@ class RHSWP_timelineplugin {
       				),
       				array(
       					'key' => 'field_5a95c3cd2159d',
-      					'label' => _x( "Sub-items", 'ACF-labels', "rhswp-timeline" ),
+      					'label' => _x( "Sub-items", "ACF-labels", "rhswp-timeline" ),
       					'name' => 'timeline_item_subitems',
       					'type' => 'repeater',
       					'instructions' => '',
@@ -615,11 +616,11 @@ class RHSWP_timelineplugin {
       					'min' => 1,
       					'max' => 0,
       					'layout' => 'row',
-      					'button_label' => _x( "Add sub-item", 'ACF-labels', "rhswp-timeline" ),
+      					'button_label' => _x( "Add sub-item", "ACF-labels", "rhswp-timeline" ),
       					'sub_fields' => array(
       						array(
       							'key' => 'field_5a95c3f12159e',
-      							'label' => _x( "Title", 'ACF-labels', "rhswp-timeline" ),
+      							'label' => _x( "Title", "ACF-labels", "rhswp-timeline" ),
       							'name' => 'timeline_item_subitem_title',
       							'type' => 'text',
       							'instructions' => '',
@@ -638,7 +639,7 @@ class RHSWP_timelineplugin {
       						),
       						array(
       							'key' => 'field_5a95c40c2159f',
-      							'label' => _x( "Intro", 'ACF-labels', "rhswp-timeline" ),
+      							'label' => _x( "Intro", "ACF-labels", "rhswp-timeline" ),
       							'name' => 'timeline_item_subitem_text',
       							'type' => 'wysiwyg',
       							'instructions' => '',
@@ -923,8 +924,28 @@ class RHSWP_timelineplugin {
 
 
 
+	public function do_debug( $logline = '' ) {
+
+		$subject = '(' . getmypid() . ') ';
+
+		if ( true === WP_DEBUG ) {
+			if ( is_array( $logline ) || is_object( $logline ) ) {
+				error_log( $subject . ' - ' .  print_r( $logline, true ) );
+			}
+			else {
+				error_log( $subject . ' - ' .  $logline );
+			}
+		}
+	}
+
+
+
 }
 
 endif;
 
 add_action( 'plugins_loaded', array( 'RHSWP_timelineplugin', 'init' ), 10 );
+
+add_action( 'plugins_loaded', array( 'RHSWP_timelineplugin', 'rhswp_timeline_load_plugin_textdomain' ), 88 );
+
+
