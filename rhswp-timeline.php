@@ -5,8 +5,8 @@
  * Plugin Name:         RHSWP timeline
  * Plugin URI:          https://github.com/ICTU/digitale-overheid-wordpress-plugin-timelineplugin/
  * Description:         Insert usable and accessible timelines in your post or page 
- * Version:             0.2.2
- * Version description: Container class hernoemd; betere debugging; teksten aangepast; preview aangepast.
+ * Version:             0.2.3
+ * Version description: Titel voor een subitem niet meer verplicht.
  * Author:              Paul van Buuren
  * Author URI:          https://wbvb.nl
  * License:             GPL-2.0+
@@ -36,7 +36,7 @@ class RHSWP_timelineplugin {
     /**
      * @var string
      */
-    public $version = '0.2.2';
+    public $version = '0.2.3';
 
 
     /**
@@ -648,7 +648,7 @@ class RHSWP_timelineplugin {
       						'id' => '',
       					),
       					'collapsed' => 'field_5a95c3f12159e',
-      					'min' => 1,
+      					'min' => 0,
       					'max' => 0,
       					'layout' => 'row',
       					'button_label' => _x( "Add sub-item", "ACF-labels", "rhswp-timeline" ),
@@ -659,7 +659,7 @@ class RHSWP_timelineplugin {
       							'name' => 'timeline_item_subitem_title',
       							'type' => 'text',
       							'instructions' => '',
-      							'required' => 1,
+      							'required' => 0,
       							'conditional_logic' => 0,
       							'wrapper' => array(
       								'width' => '',
