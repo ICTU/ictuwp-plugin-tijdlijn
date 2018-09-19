@@ -5,8 +5,8 @@
  * Plugin Name:         RHSWP timeline
  * Plugin URI:          https://github.com/ICTU/digitale-overheid-wordpress-plugin-timelineplugin/
  * Description:         Insert usable and accessible timelines in your post or page 
- * Version:             0.2.3
- * Version description: Titel voor een subitem niet meer verplicht.
+ * Version:             0.2.4
+ * Version description: Eigen icon-font.
  * Author:              Paul van Buuren
  * Author URI:          https://wbvb.nl
  * License:             GPL-2.0+
@@ -36,7 +36,7 @@ class RHSWP_timelineplugin {
     /**
      * @var string
      */
-    public $version = '0.2.3';
+    public $version = '0.2.4';
 
 
     /**
@@ -453,7 +453,7 @@ class RHSWP_timelineplugin {
 		      $majortimeline_intro = get_sub_field('timeline_item_intro');
 		
 		      $returnstring .= '<div class="timelineMajor">';
-					$returnstring .= '  <h2 class="timelineMajorMarker">';
+					$returnstring .= '  <h3 class="timelineMajorMarker">';
 					if ( ! $dopreview ) {
 			      $returnstring .= '<a href="#" tabindex="0">';
 		      }
@@ -461,7 +461,7 @@ class RHSWP_timelineplugin {
 					if ( ! $dopreview ) {
 			      $returnstring .= '</a>';
 		      }
-		      $returnstring .= '</h2>';
+		      $returnstring .= '</h3>';
 		      
 		      $returnstring .= '  <div class="majorEvent"' . $ariahidden . '>';
 		
@@ -489,7 +489,7 @@ class RHSWP_timelineplugin {
 								$returnstring .= '<a href="#" tabindex="0" aria-controls="' . $sub_item_text_id . '">';
 							}
 
-							$returnstring .= '<h3 id="' . $sub_item_title_id . '"> <span>' . esc_html( $sub_item_title ) . '</span></h3>'; 
+							$returnstring .= '<h4 id="' . $sub_item_title_id . '"> <span>' . esc_html( $sub_item_title ) . '</span></h4>'; 
 
 							if ( ! $dopreview ) {
 								$returnstring .= '</a>'; 
