@@ -8,8 +8,8 @@
 // @author  Paul van Buuren
 // @license GPL-2.0+
 // @plugin: rhswp-timeline
-// Version:	0.2.3
-// Desc:		Titel voor een subitem niet meer verplicht.
+// Version:	1.0.1
+// Desc:		Versienummer naar 1.0.0. omdat plugin al maanden actief op live-server.
 // @link    https://github.com/ICTU/digitale-overheid-wordpress-plugin-timelineplugin/
 
 
@@ -50,8 +50,17 @@
  
  */
 
-// ripped from 
+@font-face{
+
+  font-family: "RO Icons Timeline";
+  src: url( '../assets/fonts/ro-icons.eot?#iefix' ) format('embedded-opentype'),
+       url( '../assets/fonts/ro-icons.woff' ) format('woff'),
+       url( '../assets/fonts/ro-icons.ttf' ) format('truetype');
+  font-weight:400;
+  font-style:normal;
   
+}
+
 .timeline-main {
   background-color:#f3f3f3;
   padding:15px 0 15px 60px;
@@ -71,23 +80,24 @@
       margin-left:-40px;
     }
   }
-}
 
-.timeline-main h2{
+  h2{
     margin:0;
     color:#01689b;
-    margin-left:-40px
+    margin-left:-40px;
+
+    span {
+      display:block;
+      color:#112
+    }
+  }
+
+  .timelineToggle{
+      border-left:solid 0 #01689b;
+  }
+
 }
-.timeline-main h2 span{
-    display:block;
-    line-height:1.2em;
-    font-size:.75em;
-    font-weight:normal;
-    color:#112
-}
-.timeline-main .timelineToggle{
-    border-left:solid 0 #01689b
-}
+
 .timeline-main.preview .timelineToggle{
 	display: none;
 }
@@ -108,7 +118,7 @@
     text-decoration:underline
 }
 .timeline-main .timelineToggle a:link{
-    color:#01689b
+    color:#01689b;
 }
 .timeline-main .timelineToggle:first-child{
     padding-bottom:0
@@ -119,19 +129,42 @@
     width:100%;
     padding-bottom:20px
 }
-.timeline-main .timelineMajor{
-    background-color:transparent;
-    border-left:solid 2px #01689b;
-    margin-left:-30px
-}
 .timeline-main.preview .timelineMajor{
   border-left-style: none;
   margin-left: 0;
 }
-.timeline-main .timelineMajor:before,.timeline-main .timelineMajor:after{
-    content:" ";
-    display:table
+.timeline-main .timelineMajor {
+    background-color:transparent;
+    border-left:solid 2px #01689b;
+    margin-left:-30px
 }
+
+.timeline-main .timelineMajor:before,
+.timeline-main .timelineMajor:after {
+    content: " ";
+    display:table;
+}
+.timeline-main .timelineMajor {
+  margin: 0;
+  .timelineMajorMarker:before {
+    content: " ";
+    display:table;
+    margin-top: -3px;
+    margin-left: -4px;
+    border: 1px solid #01689b;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #01689b;
+  }
+  & + .timelineMajor {
+    .timelineMajorMarker:before {
+      content: "";
+      display: none;
+    }
+  }
+}
+
 .timeline-main .timelineMajor:after{
     clear:both
 }
@@ -140,12 +173,11 @@
     outline-offset:2px
 }
 .timeline-main .timelineMajor .timelineMajorMarker{
-    margin:0 0 2px 0;
-    padding:0;
-    width:100%;
-    display:block;
-    font-size:1.5em;
-    background-color:transparent
+  margin:0 0 2px 0;
+  padding:0;
+  width:100%;
+  display:block;
+  background-color:transparent
 }
 .timeline-main .timelineMajor .timelineMajorMarker a{
     display:block;
@@ -153,19 +185,20 @@
     color:#01689b;
     text-decoration:none;
     font-weight:bold;
-    padding:23px 35px 15px 35px;
+    padding: 12px 35px 11px 31px; // 23px 35px 15px 35px;
     margin:0
 }
 .js .timeline-main .timelineMajor .timelineMajorMarker a:hover{
     text-decoration:none;
     cursor:pointer
 }
-.js .timeline-main .timelineMajor .timelineMajorMarker a:before{
+
+.dojs .timeline-main .timelineMajor .timelineMajorMarker a:before{
     background-color:#fff;
     content:"";
-    font-family:"RO Icons";
+    font-family:"RO Icons Timeline";
     color:#01689b;
-    font-size:20px;
+    font-size: 12px;
     padding:6px;
     text-align:center;
     vertical-align:middle;
@@ -173,8 +206,8 @@
     position:absolute;
 //    height:40px;
 //    width:40px;
-    top:15px;
-    left:-22px;
+    top: 11px; // 15px;
+    left: -17px; // -22px;
     margin-right:40px;
     border-radius:100%;
     border:solid 4px #01689b;
@@ -218,7 +251,7 @@
     }
 }
 .timeline-main .timelineMajor .timelineMajorIntro{
-    font-size:1.2em;
+//    font-size:1.2em;
     display:block;
     line-height:1.4em;
     margin-top:0;
@@ -230,14 +263,6 @@
     visibility:hidden;
     overflow:hidden
 }
-/*
-
-[aria-hidden=true] {
-	display: block;
-	border: 10px solid red;
-}
-
-*/
 
 .timeline-main .timelineMajor .timelineMinor{
     display:block;
@@ -253,7 +278,7 @@
     padding:15px 15px 0 15px
 }
 .timeline-main .timelineMajor .timelineMinor .timelineEventHead:before{
-    border-top:solid 3px #fff;
+//    border-top:solid 3px #fff;
     width:100%;
     margin-left:50px;
     content:" ";
@@ -307,7 +332,7 @@
 .timeline-main .timelineMajor .timelineMinor .timelineEventHead a:before{
     background-color:#01689b;
     content:"";
-    font-family:"RO Icons";
+    font-family:"RO Icons Timeline";
     color:#fff;
     font-size:10px;
     text-align:center;
@@ -315,7 +340,7 @@
     line-height:26px;
     position:absolute;
     width:26px;
-    top:3px;
+    top: 7px; // 3px;
     left:0;
     z-index:1;
     border-radius:100%;
@@ -353,7 +378,7 @@
 }
 .timeline-main .timelineMajor .timelineMinor .timelineEventHead h3{
     color:#000;
-    font-size:1.66666em;
+//    font-size:1.66666em;
     width:74%;
     margin-left:50px;
     font-weight:bold;
@@ -370,15 +395,15 @@
     }
 }
 .timeline-main .timelineMajor .timelineMinor .timelineEventHead h3 span:first-child{
-    font-size:24px;
+//    font-size:24px;
     display:block;
     font-weight:bold
 }
 .timeline-main .timelineMajor .timelineMinor .timelineEventHead h3 span{
-    font-size:.75em;
-    line-height:1.3em;
-    font-weight:normal;
-    display:block
+//  font-size:.75em;
+//  line-height:1.3em;
+  font-weight:normal;
+  display:block
 }
 .timeline-main .timelineMajor .timelineMinor .timelineEventHead .thumb{
     display:none;
@@ -452,8 +477,8 @@
     max-width:220px
 }
 .timeline-main .timelineMajor .timelineMinor .timelineEvent .media p.cite{
-    font-size:.8em;
-    max-width:220px
+//  font-size:.8em;
+//  max-width:220px
 }
 .timeline-main .timelineMajor .timelineMinor .timelineEvent .scrollcontainer{
     clear:both

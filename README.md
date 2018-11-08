@@ -5,10 +5,12 @@ ICTU - Digitale Overheid WP - timelineplugin
 Paul van Buuren (paul@wbvb.nl)
 
 ## Current version
-* 0.2.3
+* 1.0.1
 
 ## Version history
-* 0.2.3 - Titel voor een subitem niet meer verplicht.
+* 1.0.1 - Versienummer naar 1.0.0. omdat plugin al maanden actief op live-server.
+* 0.2.5 - Code voor vertalingsaanroep verbeterd.
+* 0.2.4 - Eigen icon-font.
 * 0.2.2 - Container class hernoemd; betere debugging; teksten aangepast; preview aangepast.
 * 0.2.1 - Bugfix voor vertaling.
 * 0.1.1 - Eerste proefversie.
