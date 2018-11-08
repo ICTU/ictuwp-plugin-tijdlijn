@@ -5,8 +5,8 @@
  * Plugin Name:         RHSWP timeline
  * Plugin URI:          https://github.com/ICTU/digitale-overheid-wordpress-plugin-timelineplugin/
  * Description:         Insert usable and accessible timelines in your post or page 
- * Version:             0.2.5
- * Version description: Code voor vertalingsaanroep verbeterd.
+ * Version:             1.0.1
+ * Version description: Versienummer naar 1.0.0. omdat plugin al maanden actief op live-server.
  * Author:              Paul van Buuren
  * Author URI:          https://wbvb.nl
  * License:             GPL-2.0+
@@ -36,7 +36,7 @@ if ( ! class_exists( 'RHSWP_timelineplugin' ) ) :
       /**
        * @var string
        */
-      public $version = '0.2.5';
+      public $version = '1.0.1';
   
   
       /**
