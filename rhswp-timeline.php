@@ -1,8 +1,8 @@
 <?php
 /*
- * RHSWP timeline. 
+ * ICTU / WP timeline. 
  *
- * Plugin Name:         RHSWP timeline
+ * Plugin Name:         ICTU / WP timeline
  * Plugin URI:          https://github.com/ICTU/digitale-overheid-wordpress-plugin-timelineplugin/
  * Description:         Insert usable and accessible timelines in your post or page 
  * Version:             1.0.1
