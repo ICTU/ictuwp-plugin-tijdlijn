@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: RHSWP timeline\n"
-"POT-Creation-Date: 2018-03-12 14:16+0100\n"
+"POT-Creation-Date: 2018-11-09 13:51+0100\n"
 "PO-Revision-Date: 2018-02-27 17:51+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: rhswp-timeline.php\n"
@@ -21,170 +21,176 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: rhswp-timeline.php:205
-msgctxt "labels"
-msgid "Timeline"
-msgstr ""
-
-#: rhswp-timeline.php:206
-msgctxt "labels"
-msgid "Timelines"
-msgstr ""
-
-#: rhswp-timeline.php:207
-msgctxt "labels"
-msgid "All timelines"
+#: rhswp-timeline.php:140
+msgid ""
+"Dit is een niet-functionele preview van deze tijdlijn. Je kunt deze het "
+"best bekijken door dit in een bericht te embedden"
 msgstr ""
 
 #: rhswp-timeline.php:208
 msgctxt "labels"
-msgid "Add new"
+msgid "Timeline"
 msgstr ""
 
 #: rhswp-timeline.php:209
 msgctxt "labels"
-msgid "Add new timeline"
+msgid "Timelines"
 msgstr ""
 
 #: rhswp-timeline.php:210
 msgctxt "labels"
-msgid "Edit?"
+msgid "All timelines"
 msgstr ""
 
 #: rhswp-timeline.php:211
 msgctxt "labels"
-msgid "Edit timeline"
+msgid "Add new"
 msgstr ""
 
 #: rhswp-timeline.php:212
 msgctxt "labels"
-msgid "New timelines"
+msgid "Add new timeline"
 msgstr ""
 
 #: rhswp-timeline.php:213
 msgctxt "labels"
-msgid "Show"
+msgid "Edit?"
 msgstr ""
 
 #: rhswp-timeline.php:214
 msgctxt "labels"
-msgid "View timeline"
+msgid "Edit timeline"
 msgstr ""
 
 #: rhswp-timeline.php:215
 msgctxt "labels"
-msgid "Search timeline"
+msgid "New timelines"
 msgstr ""
 
 #: rhswp-timeline.php:216
 msgctxt "labels"
-msgid "Not found"
+msgid "Show"
 msgstr ""
 
 #: rhswp-timeline.php:217
 msgctxt "labels"
-msgid "No timelines found in trash"
+msgid "View timeline"
 msgstr ""
 
 #: rhswp-timeline.php:218
 msgctxt "labels"
+msgid "Search timeline"
+msgstr ""
+
+#: rhswp-timeline.php:219
+msgctxt "labels"
+msgid "Not found"
+msgstr ""
+
+#: rhswp-timeline.php:220
+msgctxt "labels"
+msgid "No timelines found in trash"
+msgstr ""
+
+#: rhswp-timeline.php:221
+msgctxt "labels"
 msgid "Parent"
 msgstr ""
 
-#: rhswp-timeline.php:223
+#: rhswp-timeline.php:226
 msgid "Timeline"
 msgstr ""
 
-#: rhswp-timeline.php:299
+#: rhswp-timeline.php:294
 msgid "Documentation"
 msgstr ""
 
-#: rhswp-timeline.php:300
+#: rhswp-timeline.php:295
 msgid "Timeline documentation"
 msgstr ""
 
-#: rhswp-timeline.php:332
+#: rhswp-timeline.php:331
 msgid "Section collapse"
 msgstr ""
 
-#: rhswp-timeline.php:333 rhswp-timeline.php:425 rhswp-timeline.php:469
+#: rhswp-timeline.php:332 rhswp-timeline.php:434 rhswp-timeline.php:502
 msgid "Section open"
 msgstr ""
 
-#: rhswp-timeline.php:382
+#: rhswp-timeline.php:381
 msgid "URL"
 msgstr ""
 
-#: rhswp-timeline.php:383
+#: rhswp-timeline.php:382
 msgid "New Window"
 msgstr ""
 
-#: rhswp-timeline.php:384
+#: rhswp-timeline.php:383
 msgid "Are you sure?"
 msgstr ""
 
-#: rhswp-timeline.php:523
+#: rhswp-timeline.php:549
 msgctxt "ACF-labels"
 msgid "Fields for timeline"
 msgstr ""
 
-#: rhswp-timeline.php:527
+#: rhswp-timeline.php:553
 msgctxt "ACF-labels"
 msgid "Introduction"
 msgstr ""
 
-#: rhswp-timeline.php:546
+#: rhswp-timeline.php:572
 msgctxt "ACF-labels"
 msgid "Timeline"
 msgstr ""
 
-#: rhswp-timeline.php:561
+#: rhswp-timeline.php:587
 msgctxt "ACF-labels"
 msgid "Add item"
 msgstr ""
 
-#: rhswp-timeline.php:565 rhswp-timeline.php:622
+#: rhswp-timeline.php:591 rhswp-timeline.php:648
 msgctxt "ACF-labels"
 msgid "Title"
 msgstr ""
 
-#: rhswp-timeline.php:584 rhswp-timeline.php:641
+#: rhswp-timeline.php:610 rhswp-timeline.php:667
 msgctxt "ACF-labels"
 msgid "Intro"
 msgstr ""
 
-#: rhswp-timeline.php:603
+#: rhswp-timeline.php:629
 msgctxt "ACF-labels"
 msgid "Sub-items"
 msgstr ""
 
-#: rhswp-timeline.php:618
+#: rhswp-timeline.php:644
 msgctxt "ACF-labels"
 msgid "Add sub-item"
 msgstr ""
 
-#: rhswp-timeline.php:868 rhswp-timeline.php:912
+#: rhswp-timeline.php:897 rhswp-timeline.php:941
 msgid "Select and insert timeline"
 msgstr ""
 
-#: rhswp-timeline.php:870
+#: rhswp-timeline.php:899
 msgid "Insert timeline"
 msgstr ""
 
-#: rhswp-timeline.php:905
+#: rhswp-timeline.php:934
 msgid "Select a timeline for your post"
 msgstr ""
 
-#: rhswp-timeline.php:907
+#: rhswp-timeline.php:936
 msgid "Select timeline"
 msgstr ""
 
-#: rhswp-timeline.php:914
+#: rhswp-timeline.php:943
 msgid "No timelines available"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-msgid "RHSWP timeline"
+msgid "ICTU / WP timeline"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
