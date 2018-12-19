@@ -5,12 +5,12 @@
 // ----------------------------------------------------------------------------------
 // CSS for front-end
 // ----------------------------------------------------------------------------------
-// @author  Paul van Buuren
-// @license GPL-2.0+
-// @plugin: rhswp-timeline
-// Version: 	1.0.1
-// Desc: 		Versienummer naar 1.0.0. omdat plugin al maanden actief op live-server.
-// @link  https: //github.com/ICTU/digitale-overheid-wordpress-plugin-timelineplugin/
+// @author:   Paul van Buuren
+// @license:  GPL-2.0+
+// @plugin:   rhswp-timeline
+// Version:   1.1.0
+// Desc:      CSS-bestand naar LESS omgezet. Kleuren aangepast en functionaliteit verbeterd.
+// @link:     https: //github.com/ICTU/digitale-overheid-wordpress-plugin-timelineplugin/
 
 
 <!--                                                            -->
@@ -147,7 +147,7 @@
 @bruin_lichtst:       #efeada;
 @bruin_tekst:         white;
 
-@donkerblauw_vol:     red; // #01689b;
+@donkerblauw_vol:     #01689b;
 @donkerblauw_licht:   #cce0f1;
 @donkerblauw_lichtst: #e5f0f9;
 @donkerblauw_tekst:   white;
@@ -218,6 +218,13 @@
       }
       
     }
+    
+    a {
+      &:active,
+      &:focus {
+        outline: 2px solid @focusbordercolor;
+      }
+    }
 
 
     &.preview .timelineToggle{
@@ -252,13 +259,10 @@
         padding: 10px 0 15px 0;
         display: block;
         width: 100%;
-        font-size: 1.2em;
+//        font-size: 1.2em;
         line-height: 1.4em;
         text-decoration: underline;
 
-        &:link{
-//          color: @donkerblauw_vol;
-        }
       }      
       
     } //=== .timelineToggle
@@ -385,6 +389,7 @@
             margin-left: 0;
             padding-left: 50px;
             background-color: transparent;
+            margin-bottom: 3px;
             
             &:before{
               background-color: @donkerblauw_vol;
@@ -405,6 +410,7 @@
               -webkit-transform: rotate(45deg);
               transform: rotate(45deg);
             }
+            
           
             @media (min-width: 768px){
               margin-left: -20px;
@@ -412,12 +418,79 @@
             @media (min-width: 992px){
               margin-left: -40px;
             }
+
+            &:hover{
+              cursor: pointer;
+            }
+            h3{
+              margin-left: 0;
+              color: @donkerblauw_vol;
+            
+              &:hover{
+                cursor: pointer;
+                text-decoration: underline;
+              }
+              
+            }
+
+          }
+
+          h3{
+            color: #000;
+            width: 74%;
+            margin-left: 50px;
+            font-weight: 700;
+            float: left;
+          
+            @media (min-width: 768px){
+              margin-left: 30px;
+            }
+            @media (min-width: 992px){
+              margin-left: 10px;
+            }
+            span{
+              font-weight: 400;
+              display: block;
+            
+              &:first-child{
+                display: block;
+                font-weight: 700;
+              }
+            
+            }
             
           }
 
+          .timelineEvent{
+            margin: 0 2px 0 2px;
+            padding: 0 15px 0 65px;
+            overflow: hidden;
+            width: auto;
+            display: block;
+            @media (min-width: 768px){
+              padding: 0 4px 0 65px;
+            }
+            @media (min-width: 992px){
+              padding: 0 15px 0 65px;
+            }
+            &:after,
+            &:before{
+              content: " ";
+              display: table;
+            }
+            &:after{
+              clear: both;
+            }
+            &:focus{
+              outline: 2px solid @focusbordercolor;
+              outline-offset: -2px;
+            }  
+          
+          }          
+
         }
         
-      }
+      } //=== .timelineMinor
       
     } //=== .timelineMajor
 
@@ -458,7 +531,6 @@
             text-decoration: none;
             font-weight: 700;
             color: @donkerblauw_vol;
-            font-size: 28px;
 
             &:hover{
               text-decoration: underline;
@@ -467,10 +539,52 @@
         }        
       } //=== .timelineMajorMarker
 
-      &.open {
+      &.open { // timelineMajor.open
         .timelineMajorMarker a:before {
           transform: rotate(90deg);
         }  
+
+        .timelineEventHead{
+          background-color: transparent;
+          
+          a:after{
+            -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+          }
+        
+        }
+      
+        .timelineEvent{
+          height: auto;
+          visibility: visible;
+        }
+      
+        .timelineMajorMarker{
+          background-color: transparent;
+          border-bottom: solid 0 #f3f3f3;
+        }
+      
+        .timelineMinor{
+          height: auto;
+          visibility: visible;
+        }
+        
+        .timelineMajorIntro{
+          height: auto;
+          visibility: visible;
+          padding: 0 55px 20px 35px;
+      
+          @media (min-width: 992px){
+            margin-top: -10px;
+          }
+          
+        }
+
+        .timelineMinor.open .timelineEventHead a:before{
+          -webkit-transform: rotate(0);
+          transform: rotate(0);
+        }
+
       }
       
       .timelineMajorIntro{
@@ -484,190 +598,49 @@
         height: 0;
         visibility: hidden;
         overflow: hidden;
+
+        .timelineEvent{
+          visibility: hidden;
+          height: 0;
+        }
+        &.open {
+          height: auto;
+          visibility: visible;
+
+          .timelineEvent{
+            height: auto;
+            visibility: visible;
+            padding-left: 65px;
+
+          }
+        }
       }
-      
     } //=== .timelineMajor
-    
   } //=== .dojs .timeline-main
+  
+  //=============================================================================================
+  
+  // wut?
+  .dojs .timeline-main.preview .timelineMajor .timelineMajorMarker a:before{
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
+  
+  @-moz-document url-prefix(){
+    .dojs .timeline-main .timelineMajor.open .timelineMajorMarker a:before{
+      padding: 5px;
+    };
+  }
+  
+  
+  //=============================================================================================
+  
+  
+  
 
-//=============================================================================================
-
-// wut?
-.dojs .timeline-main.preview .timelineMajor .timelineMajorMarker a:before{
-  -webkit-transform: rotate(90deg);
-  transform: rotate(90deg);
-}
-
-@-moz-document url-prefix(){
-  .dojs .timeline-main .timelineMajor.open .timelineMajorMarker a:before{
-    padding: 5px;
-  };
-}
-
-
-//=============================================================================================
-
-
-
-.timeline-main .timelineMajor .timelineMinor .timelineEventHead a:hover{
-cursor: pointer;
-}
-.timeline-main .timelineMajor .timelineMinor .timelineEventHead a h3{
-margin-left: 0;
-color: @donkerblauw_vol;
-}
-.timeline-main .timelineMajor .timelineMinor .timelineEventHead a h3:hover{
-cursor: pointer;
-text-decoration: underline;
-}
-.timeline-main .timelineMajor .timelineMinor .timelineEventHead h3{
-color: #000;
-width: 74%;
-margin-left: 50px;
-font-weight: 700;
-float: left;
-}
-@media (min-width: 768px){
-.timeline-main .timelineMajor .timelineMinor .timelineEventHead h3{
-margin-left: 30px;
-};
-}
-@media (min-width: 992px){
-.timeline-main .timelineMajor .timelineMinor .timelineEventHead h3{
-margin-left: 10px;
-};
-}
-.timeline-main .timelineMajor .timelineMinor .timelineEventHead h3 span:first-child{
-display: block;
-font-weight: 700;
-}
-.timeline-main .timelineMajor .timelineMinor .timelineEventHead h3 span{
-font-weight: 400;
-display: block;
-}
-.timeline-main .timelineMajor .timelineMinor .timelineEventHead .thumb{
-display: none;
-max-width: 17.5%;
-float: right;
-margin-right: 40px;
-}
-@media (min-width: 768px){
-.timeline-main .timelineMajor .timelineMinor .timelineEventHead .thumb{
-display: block;
-};
-}
-.timeline-main .timelineMajor .timelineMinor .timelineEventHead .thumb p.copyright{
-position: absolute;
-bottom: -6px;
-padding-left: 5px;
-}
-.timeline-main .timelineMajor .timelineMinor .timelineEvent{
-margin: 0 2px 0 2px;
-padding: 0 15px 0 65px;
-overflow: hidden;
-width: auto;
-display: block;
-}
-@media (min-width: 768px){
-.timeline-main .timelineMajor .timelineMinor .timelineEvent{
-padding: 0 4px 0 65px;
-};
-}
-@media (min-width: 992px){
-.timeline-main .timelineMajor .timelineMinor .timelineEvent{
-padding: 0 15px 0 65px;
-};
-}
-.timeline-main .timelineMajor .timelineMinor .timelineEvent:after,.timeline-main .timelineMajor .timelineMinor .timelineEvent:before{
-content: " ";
-display: table;
-}
-.timeline-main .timelineMajor .timelineMinor .timelineEvent:after{
-clear: both;
-}
-.timeline-main .timelineMajor .timelineMinor .timelineEvent:focus{
-outline: 2px solid @focusbordercolor;
-outline-offset: -2px;
-}
-.dojs .timeline-main .timelineMajor .timelineMinor .timelineEvent{
-visibility: hidden;
-height: 0;
-}
-.timeline-main .timelineMajor .timelineMinor .timelineEvent .media{
-display: none;
-float: right;
-margin: 10px 0 10px 20px;
-}
-@media (min-width: 768px){
-.timeline-main .timelineMajor .timelineMinor .timelineEvent .media{
-display: block;
-};
-}
-.timeline-main .timelineMajor .timelineMinor .timelineEvent .media img{
-margin: 0;
-width: 100%;
-max-width: 230px;
-}
-.timeline-main .timelineMajor .timelineMinor .timelineEvent .media p.copyright{
-position: relative;
-margin-bottom: 0;
-padding: 1px 0 0 0;
-text-shadow: none;
-color: #000;
-max-width: 220px;
-}
-.timeline-main .timelineMajor .timelineMinor .timelineEvent .scrollcontainer{
-clear: both;
-}
-.timeline-main .timelineMajor .timelineMinor .timelineEvent .block-audio-video{
-float: left;
-margin-bottom: 20px;
-margin-top: 10px;
-width: 100%;
-}
-.timeline-main .timelineMajor .timelineMinor .timelineEvent .block-audio-video .collapsiblePanels{
-border-bottom: 1px solid #fff;
-}
-.timeline-main .timelineMajor .timelineMinor.open .timelineEventHead{
-background-color: transparent;
-}
-.timeline-main .timelineMajor .timelineMinor.open .timelineEventHead a:after{
--webkit-transform: rotate(90deg);
-transform: rotate(90deg);
-}
-.timeline-main .timelineMajor .timelineMinor.open .timelineEvent{
-height: auto;
-visibility: visible;
-}
-.timeline-main .timelineMajor .timelineMinor.open .thumb{
-display: none;
-}
-.timeline-main .timelineMajor.open .timelineMajorMarker{
-background-color: transparent;
-border-bottom: solid 0 #f3f3f3;
-}
-.timeline-main .timelineMajor.open .timelineMinor{
-height: auto;
-visibility: visible;
-}
-.timeline-main .timelineMajor.open .timelineMajorIntro{
-height: auto;
-visibility: visible;
-padding: 0 55px 20px 35px;
-}
-@media (min-width: 992px){
-.timeline-main .timelineMajor.open .timelineMajorIntro{
-margin-top: -10px;
-};
-}
-.timeline-main .timelineMajor.open .timelineMinor.open .timelineEventHead a:before{
--webkit-transform: rotate(0);
-transform: rotate(0);
-}
 
 }
 
-//==============================================================================================================
 //==============================================================================================================
 
   
