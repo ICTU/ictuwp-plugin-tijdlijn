@@ -309,9 +309,9 @@ if ( ! class_exists( 'RHSWP_timelineplugin' ) ) :
   
           // don't add to any admin pages
           if ( ( defined( 'WP_DEBUG' ) && WP_DEBUG ) && ( defined( 'RHSWP_TIMELINE_DEBUG' ) && RHSWP_TIMELINE_DEBUG ) ) {
-  	        wp_enqueue_script( RHSWP_TIMELINE_JS_HANDLE, RHSWP_TIMELINE_ASSETS_URL . 'js/timeliner-2017.13.3.rijksoverheid.js', array( 'jquery' ), RHSWP_TIMELINE_VERSION, $infooter );
+  	        wp_enqueue_script( RHSWP_TIMELINE_JS_HANDLE, RHSWP_TIMELINE_ASSETS_URL . 'js/timeliner-2018.12.19.rijksoverheid.js', array( 'jquery' ), RHSWP_TIMELINE_VERSION, $infooter );
           } else {
-  	        wp_enqueue_script( RHSWP_TIMELINE_JS_HANDLE, RHSWP_TIMELINE_ASSETS_URL . 'js/min/timeliner-2017.13.3.rijksoverheid-min.js', array( 'jquery' ), RHSWP_TIMELINE_VERSION, $infooter );
+  	        wp_enqueue_script( RHSWP_TIMELINE_JS_HANDLE, RHSWP_TIMELINE_ASSETS_URL . 'js/min/timeliner-2018.12.19.rijksoverheid-min.js', array( 'jquery' ), RHSWP_TIMELINE_VERSION, $infooter );
           }
   
           wp_enqueue_style( 'rhswp-timeline-frontend', RHSWP_TIMELINE_BASE_URL . 'css/rhswp-tijdlijn-frontend.css', array(), RHSWP_TIMELINE_VERSION, $infooter );
