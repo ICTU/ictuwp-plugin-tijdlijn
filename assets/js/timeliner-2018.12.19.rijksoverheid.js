@@ -5,8 +5,8 @@
 // * Plugin Name:         ICTU / WP timeline
 // * Plugin URI:          https://github.com/ICTU/digitale-overheid-wordpress-plugin-timelineplugin/
 // * Description:         Insert usable and accessible timelines in your post or page 
-// * Version:             1.1.0
-// * Version description: CSS-bestand naar LESS omgezet. Kleuren aangepast en functionaliteit verbeterd.
+// * Version:             1.1.1
+// * Version description: Betere check op condities. Styling aangepast voor als JS niet geladen is + als wel geladen is.
 // * Author:              Paul van Buuren
 // * Author URI:          https://wbvb.nl
  */
@@ -35,7 +35,7 @@ jQuery.fn.timeline = function() {
 
         function doOpenAction() {
 
-            jQuery(".timelineToggle").hasClass("open") ? jQuery(".timelineToggle").find("a").html( string_close ) : jQuery(".timelineToggle").find("a").html( string_open ), e.find(".timelineToggle a").on("click", function(r) {
+            jQuery(".timelineToggle").hasClass("open") ? jQuery(".timelineToggle").find("button").html( string_close ) : jQuery(".timelineToggle").find("button").html( string_open ), e.find(".timelineToggle button").on("click", function(r) {
                 r.preventDefault();
                 var timelineToggle  = e.find(".timelineToggle"),
                     timelineMajor   = e.find(".timelineMajor"),
@@ -46,9 +46,9 @@ jQuery.fn.timeline = function() {
                     scrollLeft: 0
                 }, 300), timelineToggle.hasClass("open") ? (timelineMajor.each(function() {
                     doCloseObject(jQuery(this))
-                }), timelineToggle.find("a").html( string_open ), timelineToggle.removeClass("open")) : (timelineMajor.each(function() {
+                }), timelineToggle.find("button").html( string_open ), timelineToggle.removeClass("open")) : (timelineMajor.each(function() {
                     doOpenObject(jQuery(this), !1)
-                }), timelineToggle.find("a").html( string_close ), timelineToggle.addClass("open"))
+                }), timelineToggle.find("button").html( string_close ), timelineToggle.addClass("open"))
             }), e.find(".timelineMajorMarker a").on("click", function(e) {
                 e.preventDefault();
                 var timelineMajor = jQuery(this).parents(".timelineMajor");

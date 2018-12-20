@@ -5,8 +5,8 @@
 // * Plugin Name:         ICTU / WP timeline
 // * Plugin URI:          https://github.com/ICTU/digitale-overheid-wordpress-plugin-timelineplugin/
 // * Description:         Insert usable and accessible timelines in your post or page 
-// * Version:             1.1.0
-// * Version description: CSS-bestand naar LESS omgezet. Kleuren aangepast en functionaliteit verbeterd.
+// * Version:             1.1.1
+// * Version description: Betere check op condities. Styling aangepast voor als JS niet geladen is + als wel geladen is.
 // * Author:              Paul van Buuren
 // * Author URI:          https://wbvb.nl
 // * License:             GPL-2.0+
@@ -36,7 +36,7 @@ if ( ! class_exists( 'RHSWP_timelineplugin' ) ) :
       /**
        * @var string
        */
-      public $version = '1.1.0';
+      public $version = '1.1.1';
   
   
       /**
@@ -302,10 +302,11 @@ if ( ! class_exists( 'RHSWP_timelineplugin' ) ) :
        * Register frontend styles
        */
       public function register_frontend_style_script() {
-  
         if ( !is_admin() ) {
   
           $infooter = false;
+
+          wp_enqueue_style( 'rhswp-timeline-frontend', RHSWP_TIMELINE_BASE_URL . 'css/rhswp-tijdlijn-frontend.css', array(), RHSWP_TIMELINE_VERSION, 'screen' );
   
           // don't add to any admin pages
           if ( ( defined( 'WP_DEBUG' ) && WP_DEBUG ) && ( defined( 'RHSWP_TIMELINE_DEBUG' ) && RHSWP_TIMELINE_DEBUG ) ) {
@@ -314,7 +315,6 @@ if ( ! class_exists( 'RHSWP_timelineplugin' ) ) :
   	        wp_enqueue_script( RHSWP_TIMELINE_JS_HANDLE, RHSWP_TIMELINE_ASSETS_URL . 'js/min/timeliner-2018.12.19.rijksoverheid-min.js', array( 'jquery' ), RHSWP_TIMELINE_VERSION, $infooter );
           }
   
-          wp_enqueue_style( 'rhswp-timeline-frontend', RHSWP_TIMELINE_BASE_URL . 'css/rhswp-tijdlijn-frontend.css', array(), RHSWP_TIMELINE_VERSION, $infooter );
           
           $this->localize_frontend_scripts();
   
@@ -403,7 +403,8 @@ if ( ! class_exists( 'RHSWP_timelineplugin' ) ) :
   		  $timeline_introduction             = '&nbsp;';
   		  $mainitemcounter                   = 0;
   			$theid                             = RHSWP_CPT_TIMELINE . '_' . $timelineid;
-  			$ariahidden 											 = ' tabindex="-1" aria-expanded="false" aria-hidden="true"';
+//  			$ariahidden 											 = ' tabindex="-1" aria-expanded="false" aria-hidden="true"';
+  			$ariahidden 											 = '';
   			$timelineMajorIntro								 = 'timelineMajorIntro';
   			$timelineMinor								 		 = 'timelineMinor';
   			$cssstatus												 = '';
@@ -431,7 +432,7 @@ if ( ! class_exists( 'RHSWP_timelineplugin' ) ) :
   		  if( have_rows( 'timeline_items', $timelineid ) ) {
   			  
   				if ( ! $dopreview ) {
-  				  $returnstring .= '<div class="timelineToggle"> <a href="#" class="expandAll" tabindex="0">' . __( 'Section open', "rhswp-timeline" ) . '</a> </div>';
+  				  $returnstring .= '<div class="timelineToggle"> <button>tekst</button> </div>';
   				}		
   				
   		    while( have_rows('timeline_items', $timelineid ) ) : the_row();
@@ -475,18 +476,25 @@ if ( ! class_exists( 'RHSWP_timelineplugin' ) ) :
   		          $returnstring .= '    <div class="'. $timelineMinor . '">';
   		          $returnstring .= '      <div class="timelineEventHead">';
   
-  							if ( ! $dopreview ) {
+  							if ( ( ! $dopreview ) && $sub_item_text ) {
   								$returnstring .= '<a href="#" tabindex="0" aria-controls="' . $sub_item_text_id . '">';
+  							}
+  							else {
+  								$returnstring .= '<div class="item-zonder-tekst">&nbsp;</div>';
   							}
   
   							$returnstring .= '<h4 id="' . $sub_item_title_id . '"> <span>' . esc_html( $sub_item_title ) . '</span></h4>'; 
   
-  							if ( ! $dopreview ) {
+  							if ( ( ! $dopreview ) && $sub_item_text ) {
   								$returnstring .= '</a>'; 
   							}
+  							
   							$returnstring .= '</div>'; 
-  
-  		          $returnstring .= '      <div id="' . $sub_item_text_id . '" role="region" ' . $ariahidden . ' class="timelineEvent" aria-labelledby="' . esc_html( $sub_item_title_id ) . '">' . $sub_item_text . '</div>'; 
+
+                if ( $sub_item_text ) {
+    		          $returnstring .= '      <div id="' . $sub_item_text_id . '" role="region" ' . $ariahidden . ' class="timelineEvent" aria-labelledby="' . esc_html( $sub_item_title_id ) . '">' . $sub_item_text . '</div>'; 
+                }  
+                
   		          $returnstring .= '    </div>'; //  class="timelineMinor"
   		
   		        endwhile;
@@ -499,7 +507,10 @@ if ( ! class_exists( 'RHSWP_timelineplugin' ) ) :
   		    endwhile;
   		
   				if ( ! $dopreview ) {
-  			    $returnstring .= '<div class="timelineToggle"> <a href="#" class="expandAll" tabindex="0">' . __( 'Section open',      "rhswp-timeline" ) . '</a> </div>';
+//  			    $returnstring .= '<div class="timelineToggle"> <a href="#" class="expandAll" tabindex="0">' . __( 'Section open',      "rhswp-timeline" ) . '</a> </div>';
+
+  				  $returnstring .= '<div class="timelineToggle"> <button>tekst</button> </div>';
+
   			  }         
   			   
   		  }          
@@ -588,7 +599,7 @@ if ( ! class_exists( 'RHSWP_timelineplugin' ) ) :
         			'sub_fields' => array(
         				array(
         					'key' => 'field_5a95a6b42cd47',
-        					'label' => _x( "Title", "ACF-labels", "rhswp-timeline" ),
+        					'label' => _x( "Jaar", "ACF-labels", "rhswp-timeline" ),
         					'name' => 'timeline_item_title',
         					'type' => 'text',
         					'instructions' => '',
@@ -607,7 +618,7 @@ if ( ! class_exists( 'RHSWP_timelineplugin' ) ) :
         				),
         				array(
         					'key' => 'field_5a95c124067da',
-        					'label' => _x( "Intro", "ACF-labels", "rhswp-timeline" ),
+        					'label' => _x( "Toelichting", "ACF-labels", "rhswp-timeline" ),
         					'name' => 'timeline_item_intro',
         					'type' => 'wysiwyg',
         					'instructions' => '',
@@ -626,7 +637,7 @@ if ( ! class_exists( 'RHSWP_timelineplugin' ) ) :
         				),
         				array(
         					'key' => 'field_5a95c3cd2159d',
-        					'label' => _x( "Sub-items", "ACF-labels", "rhswp-timeline" ),
+        					'label' => _x( "Datums", "ACF-labels", "rhswp-timeline" ),
         					'name' => 'timeline_item_subitems',
         					'type' => 'repeater',
         					'instructions' => '',
@@ -641,11 +652,11 @@ if ( ! class_exists( 'RHSWP_timelineplugin' ) ) :
         					'min' => 0,
         					'max' => 0,
         					'layout' => 'row',
-        					'button_label' => _x( "Add sub-item", "ACF-labels", "rhswp-timeline" ),
+        					'button_label' => _x( "Item toevoegen", "ACF-labels", "rhswp-timeline" ),
         					'sub_fields' => array(
         						array(
         							'key' => 'field_5a95c3f12159e',
-        							'label' => _x( "Title", "ACF-labels", "rhswp-timeline" ),
+        							'label' => _x( "Item (datum)", "ACF-labels", "rhswp-timeline" ),
         							'name' => 'timeline_item_subitem_title',
         							'type' => 'text',
         							'instructions' => '',
@@ -664,7 +675,7 @@ if ( ! class_exists( 'RHSWP_timelineplugin' ) ) :
         						),
         						array(
         							'key' => 'field_5a95c40c2159f',
-        							'label' => _x( "Intro", "ACF-labels", "rhswp-timeline" ),
+        							'label' => _x( "Uitleg bij item", "ACF-labels", "rhswp-timeline" ),
         							'name' => 'timeline_item_subitem_text',
         							'type' => 'wysiwyg',
         							'instructions' => '',

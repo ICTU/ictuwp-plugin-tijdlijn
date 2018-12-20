@@ -8,8 +8,8 @@
 // @author:   Paul van Buuren
 // @license:  GPL-2.0+
 // @plugin:   rhswp-timeline
-// Version:   1.1.0
-// Desc:      CSS-bestand naar LESS omgezet. Kleuren aangepast en functionaliteit verbeterd.
+// Version:   1.1.1
+// Desc:      Betere check op condities. Styling aangepast voor als JS niet geladen is + als wel geladen is.
 // @link:     https: //github.com/ICTU/digitale-overheid-wordpress-plugin-timelineplugin/
 
 
@@ -169,7 +169,7 @@
 .normal() {
   
 
-  @font-face{
+  @font-face {
     
     font-family: "RO Icons Timeline";
       src:  url( '../assets/fonts/ro-icons.eot?#iefix' ) format('embedded-opentype'),
@@ -178,6 +178,11 @@
     font-weight: 400;
     font-style: normal;
   
+  }
+
+  :focus {
+    color: #333;
+    outline: 2px solid @focusbordercolor;
   }
 
   p + .timeline-main {
@@ -190,29 +195,30 @@
     margin: 0 -15px 40px -15px;
     width: auto;
     clear: both;
+    
 
-    @media(min-width: 768px){
+    @media(min-width: 768px) {
 
       margin: 0 0 40px 0;
-      padding: 15px 0 15px 70px;
+      padding: 15px 0 15px 65px;
       width: 100%
       
     }
 
     .timeline-introduction {
       h2,
-      p{
+      p {
         margin-left: -40px
       }
       
     }
 
-    h2{
+    h2 {
       margin: 0;
       color: @donkerblauw_vol;
       margin-left: -40px;
 
-      span{
+      span {
         display: block;
         color: #112
       }
@@ -226,24 +232,95 @@
       }
     }
 
+    button {
+      background-color: transparent;
+      color: @donkerblauw_vol;
+      border: 2px solid transparent;
+      margin-left: -40px;
+      margin: .5em 0 .5em -40px;
+      padding-left: 0;
 
-    &.preview .timelineToggle{
-      display: none;
+      &:hover,
+      &:focus,
+      &:active {
+        border-color: @donkerblauw_vol;
+      }
+    }
 
-      .timelineMajor{
-        border-left-style: none;
-        margin-left: 0;
-      }      
-    } //=== .preview .timelineToggle
+    &.preview {
+      
+      &:before {
+        content: 'Dit is een preview';
+        display: block;
+        font-style: italic;
+        margin: 1em 0;
+      }
 
-    .timelineToggle{
+      .timeline-introduction {
+        margin-bottom: 1em;
+      }
+      
+      .timelineMajor {
+        padding-left: 25px;
+      }
+
+      h3, h4 {
+        color: @donkerblauw_vol;
+      }
+
+      h3.timelineMajorMarker span,
+      h4 {
+        &:before {
+          content: ' ' !important;
+          background: @donkerblauw_vol;
+          display: block;
+          border-radius: 50%;
+          height: 16px;
+          width: 16px;
+          float: left;
+          margin-top: 5px;
+        }
+      }
+
+
+      h3.timelineMajorMarker {
+
+        span:before {
+          height: 18px;
+          width: 18px;
+          margin-left: -40px;
+          background: @wit;
+          border: 4px solid @donkerblauw_vol;
+        }
+      }
+
+      h4 {
+
+        &:before {
+          content: ' ' !important;
+          margin-top: 5px;
+          margin-left: -35px;
+        }
+      }
+      
+      .timelineToggle {
+        display: none;
+  
+        .timelineMajor {
+          border-left-style: none;
+          margin-left: 0;
+        }      
+      } //=== .preview .timelineToggle
+    }      
+
+    .timelineToggle {
       border-left: solid 0 @donkerblauw_vol;
 
-      &:first-child{
+      &:first-child {
         padding-bottom: 50px;
         padding-bottom: 0;
 
-        &:after{
+        &:after {
           content: " ";
           display: block;
           width: 100%;
@@ -259,7 +336,6 @@
         padding: 10px 0 15px 0;
         display: block;
         width: 100%;
-//        font-size: 1.2em;
         line-height: 1.4em;
         text-decoration: underline;
 
@@ -269,11 +345,15 @@
 
     .timelineMajor {
       background-color: transparent;
-      border-left: solid 2px @donkerblauw_vol;
+      border-left: solid 4px @donkerblauw_vol;
       margin: 0 0 0 -30px;
 
+      & + .timelineMajor {
+        padding-top: 1em;
+      }
+
       &:after,
-      &:before{
+      &:before {
         content: " ";
         display: table;
       }
@@ -282,7 +362,7 @@
         clear: both;
       }
 
-      .timelineMajorMarker{
+      .timelineMajorMarker {
 
         margin: 0 0 2px 0;
         padding: 0;
@@ -290,28 +370,16 @@
         display: block;
         background-color: transparent;
 
-        &:before{
-          content: " ";
-          display: table;
-          margin-top: -3px;
-          margin-left: -4px;
-          border: 1px solid @donkerblauw_vol;
-          width: 5px;
-          height: 5px;
-          border-radius: 50%;
-          background: @donkerblauw_vol;
-        }
-
-        a{
+        a {
           display: block;
           position: relative;
           color: @donkerblauw_vol;
           text-decoration: none;
           font-weight: 700;
-          padding: 12px 35px 11px 31px;
+          padding: 12px 0 11px 25px;
           margin: 0;
           
-          &:hover{
+          &:hover {
             text-decoration: none;
             cursor: pointer;
           }
@@ -320,67 +388,82 @@
         
       } //=== .timelineMajorMarker
 
-      & +.timelineMajor .timelineMajorMarker:before{
-        content: "";
-        display: none;
-      }
-
-      .majorEvent:focus{
+      .majorEvent:focus {
         outline: 2px solid @focusbordercolor;
         outline-offset: 2px;
       }
 
-      .timelineMajorIntro{
+      .timelineMajorIntro {
         display: block;
         line-height: 1.4em;
         margin-top: 0;
-        border-top: solid 2px @grijs_2;
+//        border-top: solid 2px @grijs_2;
+        padding: 0 55px .25em 25px;
       }
 
-      .timelineMinor{
+      .timelineMinor {
         display: block;
         margin-left: -30px;
 
-        .timelineEventHead{
+        .timelineEventHead {
           position: relative;
-          padding: 15px 15px 0 15px;
+          padding: 0 1em;
           background-color: transparent; // yellow;
 
-          @media (min-width: 768px){
-            padding-left: 35px;
+          @media (min-width: 768px) {
+            padding-left: 25px;
           }
-          @media (min-width: 992px){
-            padding-left: 55px;
+          @media (min-width: 992px) {
+            padding-left: 45px;
           }
 
-          &:before{
+          &:before {
             width: 100%;
-            margin-left: 50px;
             content: " ";
             display: block;
             padding-bottom: 2px;
-            background: @grijs_2;
+            margin-left: 10px;
+            background-color: @wit;
 
-            @media(min-width: 768px){
+            @media(min-width: 768px) {
               margin-left: 30px;
             }
-            @media(min-width: 992px){
-              width: 103%;
-              margin-left: 11px;
+            @media(min-width: 992px) {
+              margin-left: 10px;
             }
   
           }
 
           &:after,
-          &:before{
+          &:before {
             content: " ";
             display: table;
           }
 
-          &:after{
+          &:after {
             clear: both;
           }
 
+          .item-zonder-tekst {
+            background: @wit;
+            border: 4px solid @donkerblauw_vol;
+            border-radius: 50%;
+            height: 20px;
+            width: 20px;
+            float: left;
+            position: absolute;
+            top: 10px;
+            left: 18px;
+
+            & + h3,
+            & + h4 {
+              color: @donkerblauw_vol;
+              padding-left: 10px;
+              padding-bottom: .5em;
+            }
+            
+          }
+            
           a {
             position: relative;
             display: inline-block;
@@ -390,43 +473,24 @@
             padding-left: 50px;
             background-color: transparent;
             margin-bottom: 3px;
-            
-            &:before{
-              background-color: @donkerblauw_vol;
-              content: "";
-              font-family: "RO Icons Timeline";
-              color: #fff;
-              font-size: 10px;
-              text-align: center;
-              height: 26px;
-              line-height: 26px;
-              position: absolute;
-              width: 26px;
-              top: 7px;
-              left: 0;
-              z-index: 1;
-              border-radius: 100%;
-              transition: all .2s ease;
-              -webkit-transform: rotate(45deg);
-              transform: rotate(45deg);
-            }
-            
           
-            @media (min-width: 768px){
+            @media (min-width: 768px) {
               margin-left: -20px;
             }
-            @media (min-width: 992px){
+            @media (min-width: 992px) {
               margin-left: -40px;
             }
 
-            &:hover{
+            &:hover {
               cursor: pointer;
+              color: @donkerblauw_vol;
+              text-decoration: underline;
             }
-            h3{
+            h3 {
               margin-left: 0;
               color: @donkerblauw_vol;
             
-              &:hover{
+              &:hover {
                 cursor: pointer;
                 text-decoration: underline;
               }
@@ -435,24 +499,24 @@
 
           }
 
-          h3{
+          h3 {
             color: #000;
             width: 74%;
             margin-left: 50px;
             font-weight: 700;
             float: left;
           
-            @media (min-width: 768px){
+            @media (min-width: 768px) {
               margin-left: 30px;
             }
-            @media (min-width: 992px){
+            @media (min-width: 992px) {
               margin-left: 10px;
             }
-            span{
+            span {
               font-weight: 400;
               display: block;
             
-              &:first-child{
+              &:first-child {
                 display: block;
                 font-weight: 700;
               }
@@ -461,34 +525,30 @@
             
           }
 
-          .timelineEvent{
-            margin: 0 2px 0 2px;
-            padding: 0 15px 0 65px;
-            overflow: hidden;
-            width: auto;
-            display: block;
-            @media (min-width: 768px){
-              padding: 0 4px 0 65px;
-            }
-            @media (min-width: 992px){
-              padding: 0 15px 0 65px;
-            }
-            &:after,
-            &:before{
-              content: " ";
-              display: table;
-            }
-            &:after{
-              clear: both;
-            }
-            &:focus{
-              outline: 2px solid @focusbordercolor;
-              outline-offset: -2px;
-            }  
-          
-          }          
-
         }
+
+        .timelineEvent {
+          margin: 0 2px 0 2px;
+          padding: 0 15px .5em 55px;
+          overflow: hidden;
+          width: auto;
+          display: block;
+          @media (min-width: 768px) {
+//            padding: 0 4px .5em 55px;
+          }
+          @media (min-width: 992px) {
+//            padding: 0 15px .5em 55px;
+          }
+          &:after,
+          &:before {
+            content: " ";
+            display: table;
+          }
+          &:after {
+            clear: both;
+          }
+        
+        }        
         
       } //=== .timelineMinor
       
@@ -496,16 +556,31 @@
 
   } //=== .timeline-main
   
-  .dojs .timeline-main {
+  .dojs .timeline-main.initialized {
 
     .timelineMajor {
+      
 
       .timelineMajorMarker {
 
-        a{
-          &:before{
+        &:before {
+          content: " ";
+          display: table;
+          margin-top: -3px;
+          margin-left: -7px;
+          border: 1px solid @donkerblauw_vol;
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: @donkerblauw_vol;
+        }        
+        
+
+        a {
+          &:before {
             background-color: #fff;
-            content: "";
+//            content: "";
+            content: "\EA30";
             font-family: "RO Icons Timeline";
             color: @donkerblauw_vol;
             font-size: 12px;
@@ -515,7 +590,7 @@
             line-height: 1;
             position: absolute;
             top: 11px;
-            left: -17px;
+            left: -18px;
             margin-right: 40px;
             border-radius: 100%;
             border: solid 4px @donkerblauw_vol;
@@ -523,83 +598,110 @@
             -webkit-transform: rotate(45deg);
             transform: rotate(45deg);
             
-            @media(min-width: 1200px){
-              top: 18px;
+            @media(min-width: 1200px) {
+//              top: 18px;
             }        
           } 
-          span{
+          span {
             text-decoration: none;
             font-weight: 700;
             color: @donkerblauw_vol;
 
-            &:hover{
+            &:hover {
               text-decoration: underline;
             }
           }                 
-        }        
+        }   
+
       } //=== .timelineMajorMarker
+
+      & +.timelineMajor .timelineMajorMarker:before {
+        content: "";
+        display: none;
+      }
+
 
       &.open { // timelineMajor.open
         .timelineMajorMarker a:before {
           transform: rotate(90deg);
         }  
 
-        .timelineEventHead{
+        .timelineEventHead {
           background-color: transparent;
+
+          a {
+            &:before {
+              background-color: @donkerblauw_vol;
+              content: "";
+              font-family: "RO Icons Timeline";
+              color: #fff;
+              font-size: 10px;
+              text-align: center;
+              height: 22px;
+              width: 22px;
+              line-height: 22px;
+              position: absolute;
+              top: 8px;
+              left: 12px;
+              z-index: 1;
+              border-radius: 100%;
+              transition: all .2s ease;
+              -webkit-transform: rotate(45deg);
+              transform: rotate(45deg);
+            }  
+          }          
           
-          a:after{
+          a:after {
             -webkit-transform: rotate(90deg);
             transform: rotate(90deg);
           }
         
         }
       
-        .timelineEvent{
+        .timelineEvent {
           height: auto;
           visibility: visible;
         }
       
-        .timelineMajorMarker{
+        .timelineMajorMarker {
           background-color: transparent;
           border-bottom: solid 0 #f3f3f3;
         }
       
-        .timelineMinor{
+        .timelineMinor {
           height: auto;
           visibility: visible;
         }
         
-        .timelineMajorIntro{
+        .timelineMajorIntro {
           height: auto;
           visibility: visible;
-          padding: 0 55px 20px 35px;
       
-          @media (min-width: 992px){
+          @media (min-width: 992px) {
             margin-top: -10px;
           }
           
         }
 
-        .timelineMinor.open .timelineEventHead a:before{
+        .timelineMinor.open .timelineEventHead a:before {
           -webkit-transform: rotate(0);
           transform: rotate(0);
         }
 
       }
       
-      .timelineMajorIntro{
+      .timelineMajorIntro {
         height: 0;
-        padding: 0;
         visibility: hidden;
         overflow: hidden;
       }
 
-      .timelineMinor{
+      .timelineMinor {
         height: 0;
         visibility: hidden;
         overflow: hidden;
 
-        .timelineEvent{
+        .timelineEvent {
           visibility: hidden;
           height: 0;
         }
@@ -607,27 +709,27 @@
           height: auto;
           visibility: visible;
 
-          .timelineEvent{
+          .timelineEvent {
             height: auto;
             visibility: visible;
-            padding-left: 65px;
-
+            outline: none;
           }
         }
       }
+      
     } //=== .timelineMajor
   } //=== .dojs .timeline-main
   
   //=============================================================================================
   
   // wut?
-  .dojs .timeline-main.preview .timelineMajor .timelineMajorMarker a:before{
+  .dojs .timeline-main.preview .timelineMajor .timelineMajorMarker a:before {
     -webkit-transform: rotate(90deg);
     transform: rotate(90deg);
   }
   
-  @-moz-document url-prefix(){
-    .dojs .timeline-main .timelineMajor.open .timelineMajorMarker a:before{
+  @-moz-document url-prefix() {
+    .dojs .timeline-main .timelineMajor.open .timelineMajorMarker a:before {
       padding: 5px;
     };
   }
