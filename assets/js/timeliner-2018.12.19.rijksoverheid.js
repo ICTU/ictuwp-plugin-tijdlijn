@@ -14,11 +14,12 @@
 
 jQuery.fn.timeline = function() {
     return this.each(function() {
-        function r() {
-            s()
+        function doInitialize() {
+          e.addClass("initialized");
+          setProperties()
         }
 
-        function s() {
+        function setProperties() {
             jQuery(".timelineMajor").each(function(e, t) {
                 jQuery(this).hasClass("open") && jQuery(this).find(".majorEvent").attr({
                     "aria-hidden": !1,
@@ -33,32 +34,33 @@ jQuery.fn.timeline = function() {
         }
 
         function doOpenAction() {
-            jQuery(".timelineToggle").hasClass("open") ? jQuery(".timelineToggle").find("a").html(n) : jQuery(".timelineToggle").find("a").html(t), e.find(".timelineToggle a").on("click", function(r) {
+
+            jQuery(".timelineToggle").hasClass("open") ? jQuery(".timelineToggle").find("a").html( string_close ) : jQuery(".timelineToggle").find("a").html( string_open ), e.find(".timelineToggle a").on("click", function(r) {
                 r.preventDefault();
-                var i = e.find(".timelineToggle"),
-                    s = e.find(".timelineMajor"),
-                    o = jQuery("html,body"),
-                    f = jQuery(this).parent().parent(".timeline-main");
-                navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/) ? window.scrollTo(0, f.offset().top - o.offset().top) : o.animate({
-                    scrollTop: f.offset().top - o.offset().top,
+                var timelineToggle  = e.find(".timelineToggle"),
+                    timelineMajor   = e.find(".timelineMajor"),
+                    htmlbody        = jQuery("html,body"),
+                    timelinemain    = jQuery(this).parent().parent(".timeline-main");
+                navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/) ? window.scrollTo(0, timelinemain.offset().top - htmlbody.offset().top) : htmlbody.animate({
+                    scrollTop: timelinemain.offset().top - htmlbody.offset().top,
                     scrollLeft: 0
-                }, 300), i.hasClass("open") ? (s.each(function() {
-                    a(jQuery(this))
-                }), i.find("a").html(t), i.removeClass("open")) : (s.each(function() {
-                    u(jQuery(this), !1)
-                }), i.find("a").html(n), i.addClass("open"))
+                }, 300), timelineToggle.hasClass("open") ? (timelineMajor.each(function() {
+                    doCloseObject(jQuery(this))
+                }), timelineToggle.find("a").html( string_open ), timelineToggle.removeClass("open")) : (timelineMajor.each(function() {
+                    doOpenObject(jQuery(this), !1)
+                }), timelineToggle.find("a").html( string_close ), timelineToggle.addClass("open"))
             }), e.find(".timelineMajorMarker a").on("click", function(e) {
                 e.preventDefault();
-                var t = jQuery(this).parents(".timelineMajor");
-                t.hasClass("open") ? a(t) : u(t, !0)
+                var timelineMajor = jQuery(this).parents(".timelineMajor");
+                timelineMajor.hasClass("open") ? doCloseObject( timelineMajor ) : doOpenObject( timelineMajor, !0)
             }), e.find(".timelineEventHead a").on("click", function(e) {
                 e.preventDefault();
-                var t = jQuery(this).parents(".timelineMinor");
-                t.hasClass("open") ? l(t) : f(t)
+                var timelineMinor = jQuery(this).parents(".timelineMinor");
+                timelineMinor.hasClass("open") ? l( timelineMinor ) : f( timelineMinor )
             })
         }
 
-        function u(e, t) {
+        function doOpenObject(e, t) {
             $minors = e.find(".timelineMinor"), e.addClass("open");
             var n = e.find(".majorEvent");
             n.attr({
@@ -67,7 +69,7 @@ jQuery.fn.timeline = function() {
             }), t && n.focus()
         }
 
-        function a(e) {
+        function doCloseObject(e) {
             $minors = e.find(".timelineMinor"), $minors.each(function() {
                 l(jQuery(this))
             });
@@ -95,7 +97,12 @@ jQuery.fn.timeline = function() {
         }
         var e = jQuery(this),
             t = jQuery(this).data("expand"),
+
+            string_close  = timeline.toggle_close,
+            string_open   = timeline.toggle_open,
+
             n = jQuery(this).data("collapse");
-        r()
+
+        doInitialize()
     })
 }, jQuery(".timeline-main").timeline();

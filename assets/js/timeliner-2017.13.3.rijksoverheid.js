@@ -25,8 +25,6 @@ jQuery.fn.timeline = function() {
 
         function a() {
 
-          console.log('open = ' + timeline.toggle_open + ' / close = ' + timeline.toggle_close );
-
             jQuery(".timelineToggle").hasClass("open") ? jQuery(".timelineToggle").find("a").html( string_close ) : jQuery(".timelineToggle").find("a").html( string_open ), d.find(".timelineToggle a").on("click", function(i) {
                 i.preventDefault();
                 var n = d.find(".timelineToggle"),
