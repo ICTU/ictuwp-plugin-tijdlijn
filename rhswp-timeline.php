@@ -5,8 +5,8 @@
 // * Plugin Name:         ICTU / WP timeline
 // * Plugin URI:          https://github.com/ICTU/digitale-overheid-wordpress-plugin-timelineplugin/
 // * Description:         Insert usable and accessible timelines in your post or page 
-// * Version:             1.1.1
-// * Version description: Betere check op condities. Styling aangepast voor als JS niet geladen is + als wel geladen is.
+// * Version:             1.1.2
+// * Version description: Kleine CSS-correctie.
 // * Author:              Paul van Buuren
 // * Author URI:          https://wbvb.nl
 // * License:             GPL-2.0+
@@ -36,7 +36,7 @@ if ( ! class_exists( 'RHSWP_timelineplugin' ) ) :
       /**
        * @var string
        */
-      public $version = '1.1.1';
+      public $version = '1.1.2';
   
   
       /**
