@@ -1,8 +1,8 @@
 <?php
 /*
-// * ICTU / WP timeline. 
+// * ICTU / WP tijdlijn. 
 // * 
-// * Plugin Name:         ICTU / WP timeline
+// * Plugin Name:         ICTU / WP tijdlijn
 // * Plugin URI:          https://github.com/ICTU/digitale-overheid-wordpress-plugin-timelineplugin/
 // * Description:         Insert usable and accessible timelines in your post or page 
 // * Version:             1.1.2
@@ -82,7 +82,7 @@ if ( ! class_exists( 'RHSWP_timelineplugin' ) ) :
         define( 'RHSWP_TIMELINE_BASE_URL',   trailingslashit( plugins_url( RHSWP_TIMELINE_FOLDER ) ) );
         define( 'RHSWP_TIMELINE_ASSETS_URL', trailingslashit( RHSWP_TIMELINE_BASE_URL . 'assets' ) );
         define( 'RHSWP_TIMELINE_PATH',       plugin_dir_path( __FILE__ ) );
-        define( 'RHSWP_CPT_TIMELINE',        "timeline" );
+        define( 'RHSWP_CPT_TIMELINE',        "tijdlijncpt" );
         define( 'RHSWP_TIMELINE_JS_HANDLE',  'rhswp-timeline-frontend-js');
         define( 'RHSWP_TIMELINE_DO_DEBUG',   false );
   
@@ -168,7 +168,7 @@ if ( ! class_exists( 'RHSWP_timelineplugin' ) ) :
       private function setup_shortcode() {
   
           add_shortcode( 'timeline', array( $this, 'register_shortcode' ) );
-          add_shortcode( RHSWP_CPT_TIMELINE, array( $this, 'register_shortcode' ) ); // backwards compatibility
+          add_shortcode( 'timeline', array( $this, 'register_shortcode' ) ); // backwards compatibility
   
       }
   
