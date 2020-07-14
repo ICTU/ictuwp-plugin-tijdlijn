@@ -36,7 +36,7 @@ if ( ! class_exists( 'RHSWP_timelineplugin' ) ) :
       /**
        * @var string
        */
-      public $version = '1.1.3';
+      public $version = '1.1.4';
   
   
       /**
