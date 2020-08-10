@@ -5,9 +5,10 @@ ICTU - Digitale Overheid WP - timelineplugin
 Paul van Buuren (paul@wbvb.nl)
 
 ## Current version
-* 1.1.3 - Stijlaanpassing tbv digitaleoverheid.nl anno 2020.
+* 1.1.4 - Bestanden hernoemd en 404-fouten verholpen.
 
 ## Version history
+* 1.1.4 - Bestanden hernoemd en 404-fouten verholpen.
 * 1.1.3 - Stijlaanpassing tbv digitaleoverheid.nl anno 2020.
 * 1.1.2 - Kleine CSS-correctie.
 * 1.1.1 - Betere check op condities. Styling aangepast voor als JS niet geladen is + als wel geladen is.

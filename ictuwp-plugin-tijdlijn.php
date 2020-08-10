@@ -5,8 +5,8 @@
 // * Plugin Name:         ICTU / WP tijdlijn
 // * Plugin URI:          https://github.com/ICTU/digitale-overheid-wordpress-plugin-timelineplugin/
 // * Description:         Insert usable and accessible timelines in your post or page 
-// * Version:             1.1.3
-// * Version description: Stijlaanpassing tbv digitaleoverheid.nl anno 2020.
+// * Version:             1.1.4
+// * Version description: Bestanden hernoemd en 404-fouten verholpen.
 // * Author:              Paul van Buuren
 // * Author URI:          https://wbvb.nl
 // * License:             GPL-2.0+
@@ -78,7 +78,7 @@ if ( ! class_exists( 'RHSWP_timelineplugin' ) ) :
         $protocol = strtolower(substr($_SERVER["SERVER_PROTOCOL"],0,strpos( $_SERVER["SERVER_PROTOCOL"],'/'))).'://';
   
         define( 'RHSWP_TIMELINE_VERSION',    $this->version );
-        define( 'RHSWP_TIMELINE_FOLDER',     'rhswp-timeline' );
+        define( 'RHSWP_TIMELINE_FOLDER',     'ictuwp-plugin-tijdlijn' );
         define( 'RHSWP_TIMELINE_BASE_URL',   trailingslashit( plugins_url( RHSWP_TIMELINE_FOLDER ) ) );
         define( 'RHSWP_TIMELINE_ASSETS_URL', trailingslashit( RHSWP_TIMELINE_BASE_URL . 'assets' ) );
         define( 'RHSWP_TIMELINE_PATH',       plugin_dir_path( __FILE__ ) );
@@ -166,9 +166,9 @@ if ( ! class_exists( 'RHSWP_timelineplugin' ) ) :
        * Register the [timeline] shortcode.
        */
       private function setup_shortcode() {
-  
+	      
           add_shortcode( 'timeline', array( $this, 'register_shortcode' ) );
-          add_shortcode( 'timeline', array( $this, 'register_shortcode' ) ); // backwards compatibility
+          add_shortcode( 'tijdlijncpt', array( $this, 'register_shortcode' ) ); // backwards compatibility
   
       }
   
@@ -306,7 +306,7 @@ if ( ! class_exists( 'RHSWP_timelineplugin' ) ) :
   
           $infooter = false;
 
-          wp_enqueue_style( 'rhswp-timeline-frontend', RHSWP_TIMELINE_BASE_URL . 'css/rhswp-tijdlijn-frontend.css', array(), RHSWP_TIMELINE_VERSION, 'screen' );
+          wp_enqueue_style( 'ictuwp-plugin-tijdlijn-frontend', RHSWP_TIMELINE_BASE_URL . 'css/ictuwp-plugin-tijdlijn-frontend.css', array(), RHSWP_TIMELINE_VERSION, 'screen' );
   
           // don't add to any admin pages
           if ( ( defined( 'WP_DEBUG' ) && WP_DEBUG ) && ( defined( 'RHSWP_TIMELINE_DEBUG' ) && RHSWP_TIMELINE_DEBUG ) ) {
@@ -343,7 +343,7 @@ if ( ! class_exists( 'RHSWP_timelineplugin' ) ) :
        */
       public function register_admin_styles() {
   
-          wp_enqueue_style( 'timeline-admin-styles', RHSWP_TIMELINE_BASE_URL . 'css/rhswp-tijdlijn-admin.css', false, RHSWP_TIMELINE_VERSION );
+          wp_enqueue_style( 'timeline-admin-styles', RHSWP_TIMELINE_BASE_URL . 'css/ictuwp-plugin-tijdlijn-frontend-admin.css', false, RHSWP_TIMELINE_VERSION );
   
           do_action( 'RHSWP_TIMELINE_register_admin_styles' );
   
@@ -931,7 +931,7 @@ if ( ! class_exists( 'RHSWP_timelineplugin' ) ) :
                   jQuery(document).ready(function() {
                     jQuery('#insert_timeline').on('click', function() {
                       var id = jQuery('#timeline-select option:selected').val();
-                      window.send_to_editor('[<?php echo RHSWP_CPT_TIMELINE ?> id=' + id + ']');
+                      window.send_to_editor('[<?php echo 'timeline' ?> id=' + id + ']');
                       tb_remove();
                     })
                   });
