@@ -345,10 +345,6 @@ p + .timeline-main {
   width: auto;
   display: block;
 }
-@media (min-width: 768px) {
-}
-@media (min-width: 992px) {
-}
 .timeline-main .timelineMajor .timelineMinor .timelineEvent:after,
 .timeline-main .timelineMajor .timelineMinor .timelineEvent:before {
   content: " ";
@@ -387,8 +383,6 @@ p + .timeline-main {
   transition: all 0.2s ease;
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
-}
-@media (min-width: 1200px) {
 }
 .dojs .timeline-main.initialized .timelineMajor .timelineMajorMarker a span {
   text-decoration: none;
@@ -488,4 +482,3 @@ p + .timeline-main {
     padding: 5px;
   }
 }
-/*# sourceMappingURL=ictuwp-plugin-tijdlijn-frontend.css.map */
