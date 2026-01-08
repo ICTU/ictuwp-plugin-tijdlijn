@@ -8,45 +8,10 @@
 // @author:   Paul van Buuren
 // @license:  GPL-2.0+
 // @plugin:   rhswp-timeline
-// Version:   1.1.5
+// Version:   1.2.1
 // Desc:      Small PHP bugfix.
 // @link:     https: //github.com/ICTU/digitale-overheid-wordpress-plugin-timelineplugin/
 
-
-<!--                                                            -->
-<!-- ========================================================   -->
-<!--                                                            -->
-<!--                  .:::::::::::::::}}}}}}}                   -->
-<!--                  .:::::::::::::::}}}}}}}                   -->
-<!--                  .:::::::::::::::}}}}}}}                   -->
-<!--              ````.:::::::::::::::::}}}}}``````             -->
-<!--        ``.------------------::::::::::::::::}}}::.`        -->
-<!--      `.---------------------::::::::::::::::}}}}}}}:`      -->
-<!--     `-----------------------::::::::::::::::}}}}}}}}}.     -->
-<!--     .-----------------------::::::::::::::::}}}}}}}}}}     -->
-<!--     ------------------------::::::::::::::::}}}}}}}}}}     -->
-<!--     ------------------------::::::::::::::::}}}}}}}}}}     -->
-<!--     ------------------------::::::::::::::::}}}}}}}}}}     -->
-<!--     -----------------::-----:::::::}::::::::}}}}}}}}}}     -->
-<!--     ---------------:hmmd+---:::::smmmy::::::}}}}}}}}}}     -->
-<!--     ---------------+MMMMy---:::::NMMMN}:::::}}}}}}}}}}     -->
-<!--     ----------------oyhs:---:::::}yhy+::::::}}}}}}}}}}     -->
-<!--     ------------------------::::::::::::::::}}}}}}}}}}     -->
-<!--     ------------------------::::::::::::::::}}}}}}}}}}     -->
-<!--     ------------------oso}}:::}}+sy}::::::::}}}}}}}}}}     -->
-<!--     ------------------}oyhhdhhdhys+:::::::::}}}}}}}}}}     -->
-<!--     -----------------------:::::::::::::::::}}}}}}}}}}     -->
-<!--     ------------------------::::::::::::::::}}}}}}}}}}     -->
-<!--     `-----------------------::::::::::::::::}}}}}}}}}.     -->
-<!--      `.---------------------::::::::::::::::}}}}}}}:`      -->
-<!--        `..-----------------::::::::::::::::}}}}::-`        -->
-<!--             ``::::::::::::::::}}}}}}}}}}}}}}-`             -->
-<!--              `::::::::::::::::}}}}}}}}}}}}}}.              -->
-<!--              `::::::::::::::::}}}}}}}}}}}}}}.              -->
-<!--                                                            -->
-<!-- ========================================================   -->
-<!--                                                            -->
-	
  
  */
 @font-face {
@@ -54,10 +19,6 @@
   src: url('../assets/fonts/ro-icons.eot?#iefix') format('embedded-opentype'), url('../assets/fonts/ro-icons.woff') format('woff'), url('../assets/fonts/ro-icons.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
-}
-:focus {
-  color: #333;
-  outline: 2px solid #82befb;
 }
 p + .timeline-main {
   margin-top: 1em;
@@ -87,10 +48,6 @@ p + .timeline-main {
 .timeline-main h2 span {
   display: block;
   color: #112;
-}
-.timeline-main a:active,
-.timeline-main a:focus {
-  outline: 2px solid #82befb;
 }
 .timeline-main button {
   background-color: transparent;
@@ -153,7 +110,6 @@ p + .timeline-main {
   border-left: solid 0 #01689b;
 }
 .timeline-main .timelineToggle:first-child {
-  padding-bottom: 50px;
   padding-bottom: 0;
 }
 .timeline-main .timelineToggle:first-child:after {
@@ -207,10 +163,6 @@ p + .timeline-main {
 .timeline-main .timelineMajor .timelineMajorMarker a:hover {
   text-decoration: none;
   cursor: pointer;
-}
-.timeline-main .timelineMajor .majorEvent:focus {
-  outline: 2px solid #82befb;
-  outline-offset: 2px;
 }
 .timeline-main .timelineMajor .timelineMajorIntro {
   display: block;
@@ -381,7 +333,6 @@ p + .timeline-main {
   border-radius: 100%;
   border: solid 4px #01689b;
   transition: all 0.2s ease;
-  -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 .dojs .timeline-main.initialized .timelineMajor .timelineMajorMarker a span {
@@ -474,11 +425,5 @@ p + .timeline-main {
   outline: none;
 }
 .dojs .timeline-main.preview .timelineMajor .timelineMajorMarker a:before {
-  -webkit-transform: rotate(90deg);
   transform: rotate(90deg);
-}
-@-moz-document url-prefix() {
-  .dojs .timeline-main .timelineMajor.open .timelineMajorMarker a:before {
-    padding: 5px;
-  }
 }

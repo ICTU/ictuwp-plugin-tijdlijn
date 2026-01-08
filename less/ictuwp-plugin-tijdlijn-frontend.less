@@ -8,45 +8,10 @@
 // @author:   Paul van Buuren
 // @license:  GPL-2.0+
 // @plugin:   rhswp-timeline
-// Version:   1.1.5
+// Version:   1.2.1
 // Desc:      Small PHP bugfix.
 // @link:     https: //github.com/ICTU/digitale-overheid-wordpress-plugin-timelineplugin/
 
-
-<!--                                                            -->
-<!-- ========================================================   -->
-<!--                                                            -->
-<!--                  .:::::::::::::::}}}}}}}                   -->
-<!--                  .:::::::::::::::}}}}}}}                   -->
-<!--                  .:::::::::::::::}}}}}}}                   -->
-<!--              ````.:::::::::::::::::}}}}}``````             -->
-<!--        ``.------------------::::::::::::::::}}}::.`        -->
-<!--      `.---------------------::::::::::::::::}}}}}}}:`      -->
-<!--     `-----------------------::::::::::::::::}}}}}}}}}.     -->
-<!--     .-----------------------::::::::::::::::}}}}}}}}}}     -->
-<!--     ------------------------::::::::::::::::}}}}}}}}}}     -->
-<!--     ------------------------::::::::::::::::}}}}}}}}}}     -->
-<!--     ------------------------::::::::::::::::}}}}}}}}}}     -->
-<!--     -----------------::-----:::::::}::::::::}}}}}}}}}}     -->
-<!--     ---------------:hmmd+---:::::smmmy::::::}}}}}}}}}}     -->
-<!--     ---------------+MMMMy---:::::NMMMN}:::::}}}}}}}}}}     -->
-<!--     ----------------oyhs:---:::::}yhy+::::::}}}}}}}}}}     -->
-<!--     ------------------------::::::::::::::::}}}}}}}}}}     -->
-<!--     ------------------------::::::::::::::::}}}}}}}}}}     -->
-<!--     ------------------oso}}:::}}+sy}::::::::}}}}}}}}}}     -->
-<!--     ------------------}oyhhdhhdhys+:::::::::}}}}}}}}}}     -->
-<!--     -----------------------:::::::::::::::::}}}}}}}}}}     -->
-<!--     ------------------------::::::::::::::::}}}}}}}}}}     -->
-<!--     `-----------------------::::::::::::::::}}}}}}}}}.     -->
-<!--      `.---------------------::::::::::::::::}}}}}}}:`      -->
-<!--        `..-----------------::::::::::::::::}}}}::-`        -->
-<!--             ``::::::::::::::::}}}}}}}}}}}}}}-`             -->
-<!--              `::::::::::::::::}}}}}}}}}}}}}}.              -->
-<!--              `::::::::::::::::}}}}}}}}}}}}}}.              -->
-<!--                                                            -->
-<!-- ========================================================   -->
-<!--                                                            -->
-	
  
  */
 
@@ -58,108 +23,108 @@
 
 
 // ========================================================================
-  
-@grijs_1:             #f3f3f3;
-@grijs_2:             #e6e6e6;
-@grijs_3:             #cccccc;
-@grijs_4:             #b4b4b4;
-@grijs_5:             #999999;
-@grijs_6:             #696969;
-@grijs_7:             #535353;
 
-@violet_vol:          #a90061;
-@violet_licht:        #e5b2cf;
-@violet_lichtst:      #f2d9e7;
-@violet_tekst:        white;
+@grijs_1: #f3f3f3;
+@grijs_2: #e6e6e6;
+@grijs_3: #cccccc;
+@grijs_4: #b4b4b4;
+@grijs_5: #999999;
+@grijs_6: #696969;
+@grijs_7: #535353;
 
-@roze_vol:            #f092cd;
-@roze_licht:          #fadef0;
-@roze_lichtst:        #fdeff8;
-@roze_tekst:          black;
+@violet_vol: #a90061;
+@violet_licht: #e5b2cf;
+@violet_lichtst: #f2d9e7;
+@violet_tekst: white;
 
-@rood_vol:            #d52b1e;
-@rood_licht:          #f2bfbb;
-@rood_lichtst:        #f9dfdd;
-@rood_tekst:          white;
+@roze_vol: #f092cd;
+@roze_licht: #fadef0;
+@roze_lichtst: #fdeff8;
+@roze_tekst: black;
 
-@robijnrood_vol:      #ca005d;
-@robijnrood_licht:    #efb2ce;
-@robijnrood_lichtst:  #f7d9e7;
-@robijnrood_tekst:    white;
+@rood_vol: #d52b1e;
+@rood_licht: #f2bfbb;
+@rood_lichtst: #f9dfdd;
+@rood_tekst: white;
 
-@paars_vol:           #42145f;
-@paars_licht:         #c6b8cf;
-@paars_lichtst:       #e3dce7;
-@paars_tekst:         white;
+@robijnrood_vol: #ca005d;
+@robijnrood_licht: #efb2ce;
+@robijnrood_lichtst: #f7d9e7;
+@robijnrood_tekst: white;
 
-@oranje_vol:          #e17000;
-@oranje_licht:        #f6d4b2;
-@oranje_lichtst:      #fbead9;
-@oranje_tekst:        black;
+@paars_vol: #42145f;
+@paars_licht: #c6b8cf;
+@paars_lichtst: #e3dce7;
+@paars_tekst: white;
 
-@mosgroen_vol:        #777c00;
-@mosgroen_licht:      #d6d7b2;
-@mosgroen_lichtst:    #ebebd9;
-@mosgroen_tekst:      white;
+@oranje_vol: #e17000;
+@oranje_licht: #f6d4b2;
+@oranje_lichtst: #fbead9;
+@oranje_tekst: black;
 
-@mintgroen_vol:       #76d2b6;
-@mintgroen_licht:     #d6f1e9;
-@mintgroen_lichtst:   #ebf8f4;
-@mintgroen_tekst:     black;
+@mosgroen_vol: #777c00;
+@mosgroen_licht: #d6d7b2;
+@mosgroen_lichtst: #ebebd9;
+@mosgroen_tekst: white;
 
-@lichtblauw_vol:      #8fcae7;
-@lichtblauw_licht:    #ddeff8;
-@lichtblauw_lichtst:  #eef7fb;
-@lichtblauw_tekst:    black;
+@mintgroen_vol: #76d2b6;
+@mintgroen_licht: #d6f1e9;
+@mintgroen_lichtst: #ebf8f4;
+@mintgroen_tekst: black;
 
-@hemelblauw_vol:      #007bc7;
-@hemelblauw_licht:    #b2d7ee;
-@hemelblauw_lichtst:  #d9ebf7;
-@hemelblauw_tekst:    white;
+@lichtblauw_vol: #8fcae7;
+@lichtblauw_licht: #ddeff8;
+@lichtblauw_lichtst: #eef7fb;
+@lichtblauw_tekst: black;
 
-@groen_vol:           #39870c;
-@groen_licht:         #c3dbb6;
-@groen_lichtst:       #e1eddb;
-@groen_tekst:         white;
+@hemelblauw_vol: #007bc7;
+@hemelblauw_licht: #b2d7ee;
+@hemelblauw_lichtst: #d9ebf7;
+@hemelblauw_tekst: white;
 
-@geel_vol:            #f9e11e;
-@geel_licht:          #fdf6bb;
-@geel_lichtst:        #fefbdd;
-@geel_tekst:          black;
+@groen_vol: #39870c;
+@groen_licht: #c3dbb6;
+@groen_lichtst: #e1eddb;
+@groen_tekst: white;
 
-@donkergroen_vol:     #275937;
-@donkergroen_licht:   #becdc3;
+@geel_vol: #f9e11e;
+@geel_licht: #fdf6bb;
+@geel_lichtst: #fefbdd;
+@geel_tekst: black;
+
+@donkergroen_vol: #275937;
+@donkergroen_licht: #becdc3;
 @donkergroen_lichtst: #dfe6e1;
-@donkergroen_tekst:   white;
+@donkergroen_tekst: white;
 
-@donkergeel_vol:      #ffb612;
-@donkergeel_licht:    #ffe9b7;
-@donkergeel_lichtst:  #fff4dc;
-@donkergeel_tekst:    black;
+@donkergeel_vol: #ffb612;
+@donkergeel_licht: #ffe9b7;
+@donkergeel_lichtst: #fff4dc;
+@donkergeel_tekst: black;
 
-@donkerbruin_vol:     #673327;
-@donkerbruin_licht:   #d1c1be;
+@donkerbruin_vol: #673327;
+@donkerbruin_licht: #d1c1be;
 @donkerbruin_lichtst: #e8e1df;
-@donkerbruin_tekst:   white;
+@donkerbruin_tekst: white;
 
-@bruin_vol:           #94710a;
-@bruin_licht:         #dfd4b5;
-@bruin_lichtst:       #efeada;
-@bruin_tekst:         white;
+@bruin_vol: #94710a;
+@bruin_licht: #dfd4b5;
+@bruin_lichtst: #efeada;
+@bruin_tekst: white;
 
-@donkerblauw_vol:     #01689b;
-@donkerblauw_licht:   #cce0f1;
+@donkerblauw_vol: #01689b;
+@donkerblauw_licht: #cce0f1;
 @donkerblauw_lichtst: #e5f0f9;
-@donkerblauw_tekst:   white;
+@donkerblauw_tekst: white;
 
-@rijksblauw:          #154273;
+@rijksblauw: #154273;
 
-@focusbordercolor:    #82befb;
+@focusbordercolor: #82befb;
 
 // ========================================================================
 // tekstkleuren
-@txt:               #000;
-@wit:               #fff;
+@txt: #000;
+@wit: #fff;
 
 // ========================================================================
 
@@ -170,19 +135,12 @@
 
 
   @font-face {
-    
     font-family: "RO Icons Timeline";
-      src:  url( '../assets/fonts/ro-icons.eot?#iefix' ) format('embedded-opentype'),
-            url( '../assets/fonts/ro-icons.woff' ) format('woff'),
-            url( '../assets/fonts/ro-icons.ttf' ) format('truetype');
+    src: url('../assets/fonts/ro-icons.eot?#iefix') format('embedded-opentype'),
+    url('../assets/fonts/ro-icons.woff') format('woff'),
+    url('../assets/fonts/ro-icons.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
-  
-  }
-
-  :focus {
-    color: #333;
-    outline: 2px solid @focusbordercolor;
   }
 
   p + .timeline-main {
@@ -195,14 +153,11 @@
     margin: 0 -15px 40px -15px;
     width: auto;
     clear: both;
-    
 
-    @media(min-width: 768px) {
-
+    @media (min-width: 768px) {
       margin: 0 0 40px 0;
       padding: 15px 0 15px 65px;
       width: 100%
-      
     }
 
     .timeline-introduction {
@@ -210,7 +165,6 @@
       p {
         margin-left: -40px
       }
-      
     }
 
     h2 {
@@ -220,14 +174,6 @@
       span {
         display: block;
         color: #112
-      }
-      
-    }
-    
-    a {
-      &:active,
-      &:focus {
-        outline: 2px solid @focusbordercolor;
       }
     }
 
@@ -245,7 +191,7 @@
     }
 
     &.preview {
-      
+
       &:before {
         content: 'Dit is een preview';
         display: block;
@@ -256,7 +202,7 @@
       .timeline-introduction {
         margin-bottom: 1em;
       }
-      
+
       .timelineMajor {
         padding-left: 25px;
       }
@@ -299,22 +245,21 @@
           margin-left: -35px;
         }
       }
-      
+
       .timelineToggle {
         display: none;
-  
+
         .timelineMajor {
           border-left-style: none;
           margin-left: 0;
-        }      
-      } //=== .preview .timelineToggle
-    }      
+        }
+      }
+    }
 
     .timelineToggle {
       border-left: solid 0 @donkerblauw_vol;
 
       &:first-child {
-        padding-bottom: 50px;
         padding-bottom: 0;
 
         &:after {
@@ -323,9 +268,8 @@
           width: 100%;
           padding-bottom: 20px;
         }
-        
       }
-      
+
       a {
         margin-left: -40px;
         position: relative;
@@ -336,9 +280,11 @@
         line-height: 1.4em;
         text-decoration: underline;
 
-      }      
-      
-    } //=== .timelineToggle
+      }
+
+    }
+
+    //=== .timelineToggle
 
     .timelineMajor {
       background-color: transparent;
@@ -375,26 +321,20 @@
           font-weight: 700;
           padding: 12px 0 11px 25px;
           margin: 0;
-          
+
           &:hover {
             text-decoration: none;
             cursor: pointer;
           }
-          
-        }        
-        
-      } //=== .timelineMajorMarker
-
-      .majorEvent:focus {
-        outline: 2px solid @focusbordercolor;
-        outline-offset: 2px;
+        }
       }
+
+      //=== .timelineMajorMarker
 
       .timelineMajorIntro {
         display: block;
         line-height: 1.4em;
         margin-top: 0;
-//        border-top: solid 2px @grijs_2;
         padding: 0 55px .25em 25px;
       }
 
@@ -422,13 +362,12 @@
             margin-left: 10px;
             background-color: @wit;
 
-            @media(min-width: 768px) {
+            @media (min-width: 768px) {
               margin-left: 30px;
             }
-            @media(min-width: 992px) {
+            @media (min-width: 992px) {
               margin-left: 10px;
             }
-  
           }
 
           &:after,
@@ -458,9 +397,8 @@
               padding-left: 10px;
               padding-bottom: .5em;
             }
-            
           }
-            
+
           a {
             position: relative;
             display: inline-block;
@@ -470,7 +408,7 @@
             padding-left: 50px;
             background-color: transparent;
             margin-bottom: 3px;
-          
+
             @media (min-width: 768px) {
               margin-left: -20px;
             }
@@ -483,17 +421,16 @@
               color: @donkerblauw_vol;
               text-decoration: underline;
             }
+
             h3 {
               margin-left: 0;
               color: @donkerblauw_vol;
-            
+
               &:hover {
                 cursor: pointer;
                 text-decoration: underline;
               }
-              
             }
-
           }
 
           h3 {
@@ -502,24 +439,25 @@
             margin-left: 50px;
             font-weight: 700;
             float: left;
-          
+
             @media (min-width: 768px) {
               margin-left: 30px;
             }
             @media (min-width: 992px) {
               margin-left: 10px;
             }
+
             span {
               font-weight: 400;
               display: block;
-            
+
               &:first-child {
                 display: block;
                 font-weight: 700;
               }
-            
+
             }
-            
+
           }
 
         }
@@ -531,32 +469,39 @@
           width: auto;
           display: block;
           @media (min-width: 768px) {
-//            padding: 0 4px .5em 55px;
+            //            padding: 0 4px .5em 55px;
           }
           @media (min-width: 992px) {
-//            padding: 0 15px .5em 55px;
+            //            padding: 0 15px .5em 55px;
           }
+
           &:after,
           &:before {
             content: " ";
             display: table;
           }
+
           &:after {
             clear: both;
           }
-        
-        }        
-        
-      } //=== .timelineMinor
-      
-    } //=== .timelineMajor
 
-  } //=== .timeline-main
-  
+        }
+
+      }
+
+      //=== .timelineMinor
+
+    }
+
+    //=== .timelineMajor
+
+  }
+  //=== .timeline-main
+
   .dojs .timeline-main.initialized {
 
     .timelineMajor {
-      
+
 
       .timelineMajorMarker {
 
@@ -570,13 +515,12 @@
           height: 8px;
           border-radius: 50%;
           background: @donkerblauw_vol;
-        }        
-        
+        }
+
 
         a {
           &:before {
             background-color: #fff;
-//            content: "";
             content: "\EA30";
             font-family: "RO Icons Timeline";
             color: @donkerblauw_vol;
@@ -592,13 +536,10 @@
             border-radius: 100%;
             border: solid 4px @donkerblauw_vol;
             transition: all .2s ease;
-            -webkit-transform: rotate(45deg);
             transform: rotate(45deg);
-            
-            @media(min-width: 1200px) {
-//              top: 18px;
-            }        
-          } 
+
+          }
+
           span {
             text-decoration: none;
             font-weight: 700;
@@ -607,12 +548,14 @@
             &:hover {
               text-decoration: underline;
             }
-          }                 
-        }   
+          }
+        }
 
-      } //=== .timelineMajorMarker
+      }
 
-      & +.timelineMajor .timelineMajorMarker:before {
+      //=== .timelineMajorMarker
+
+      & + .timelineMajor .timelineMajorMarker:before {
         content: "";
         display: none;
       }
@@ -621,7 +564,7 @@
       &.open { // timelineMajor.open
         .timelineMajorMarker a:before {
           transform: rotate(90deg);
-        }  
+        }
 
         .timelineEventHead {
           background-color: transparent;
@@ -645,39 +588,39 @@
               transition: all .2s ease;
               -webkit-transform: rotate(45deg);
               transform: rotate(45deg);
-            }  
-          }          
-          
+            }
+          }
+
           a:after {
             -webkit-transform: rotate(90deg);
             transform: rotate(90deg);
           }
-        
+
         }
-      
+
         .timelineEvent {
           height: auto;
           visibility: visible;
         }
-      
+
         .timelineMajorMarker {
           background-color: transparent;
           border-bottom: solid 0 #f3f3f3;
         }
-      
+
         .timelineMinor {
           height: auto;
           visibility: visible;
         }
-        
+
         .timelineMajorIntro {
           height: auto;
           visibility: visible;
-      
+
           @media (min-width: 992px) {
             margin-top: -10px;
           }
-          
+
         }
 
         .timelineMinor.open .timelineEventHead a:before {
@@ -686,7 +629,7 @@
         }
 
       }
-      
+
       .timelineMajorIntro {
         height: 0;
         visibility: hidden;
@@ -702,6 +645,7 @@
           visibility: hidden;
           height: 0;
         }
+
         &.open {
           height: auto;
           visibility: visible;
@@ -713,30 +657,16 @@
           }
         }
       }
-      
-    } //=== .timelineMajor
-  } //=== .dojs .timeline-main
-  
-  //=============================================================================================
-  
-  // wut?
+
+    }
+
+    //=== .timelineMajor
+  }
+  //=== .dojs .timeline-main
+
   .dojs .timeline-main.preview .timelineMajor .timelineMajorMarker a:before {
-    -webkit-transform: rotate(90deg);
     transform: rotate(90deg);
   }
-  
-  @-moz-document url-prefix() {
-    .dojs .timeline-main .timelineMajor.open .timelineMajorMarker a:before {
-      padding: 5px;
-    };
-  }
-  
-  
-  //=============================================================================================
-  
-  
-  
-
 
 }
 

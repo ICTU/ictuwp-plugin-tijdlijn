@@ -5,7 +5,7 @@ ICTU - Digitale Overheid WP - timelineplugin
 Paul van Buuren (paul@wbvb.nl)
 
 ## Current version
-* 1.1.5 - Small PHP bug fix.
+* 1.2.1 - Code cleanup; script to open all sub-nodes.
 
 ## To do
 * Documentatie en instructie
