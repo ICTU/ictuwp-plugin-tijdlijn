@@ -27,3 +27,4 @@ get_mediaelement_files.sh
 
 *.codekit3
 belangrijk.html
+.DS_Store
