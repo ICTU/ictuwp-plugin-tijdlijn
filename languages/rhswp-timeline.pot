@@ -1,196 +1,237 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"Project-Id-Version: RHSWP timeline\n"
-"POT-Creation-Date: 2018-11-09 13:51+0100\n"
-"PO-Revision-Date: 2018-02-27 17:51+0100\n"
+"Project-Id-Version: ICTU / WP tijdlijn\n"
+"POT-Creation-Date: 2026-04-23 16:53+0200\n"
+"PO-Revision-Date: 2026-04-23 16:53+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"X-Generator: Poedit 3.9\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
-"X-Poedit-WPHeader: rhswp-timeline.php\n"
+"X-Poedit-WPHeader: ictuwp-plugin-tijdlijn.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
-"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
 
-#: rhswp-timeline.php:140
+#: ictuwp-plugin-tijdlijn.php:143
 msgid ""
-"Dit is een niet-functionele preview van deze tijdlijn. Je kunt deze het "
-"best bekijken door dit in een bericht te embedden"
+"Dit is een niet-functionele preview van deze tijdlijn. Je kunt deze het best "
+"bekijken door dit in een bericht te embedden"
 msgstr ""
 
-#: rhswp-timeline.php:208
+#: ictuwp-plugin-tijdlijn.php:209
 msgctxt "labels"
 msgid "Timeline"
 msgstr ""
 
-#: rhswp-timeline.php:209
+#: ictuwp-plugin-tijdlijn.php:210
 msgctxt "labels"
 msgid "Timelines"
 msgstr ""
 
-#: rhswp-timeline.php:210
+#: ictuwp-plugin-tijdlijn.php:211
 msgctxt "labels"
 msgid "All timelines"
 msgstr ""
 
-#: rhswp-timeline.php:211
+#: ictuwp-plugin-tijdlijn.php:212
 msgctxt "labels"
 msgid "Add new"
 msgstr ""
 
-#: rhswp-timeline.php:212
+#: ictuwp-plugin-tijdlijn.php:213
 msgctxt "labels"
 msgid "Add new timeline"
 msgstr ""
 
-#: rhswp-timeline.php:213
+#: ictuwp-plugin-tijdlijn.php:214
 msgctxt "labels"
 msgid "Edit?"
 msgstr ""
 
-#: rhswp-timeline.php:214
+#: ictuwp-plugin-tijdlijn.php:215
 msgctxt "labels"
 msgid "Edit timeline"
 msgstr ""
 
-#: rhswp-timeline.php:215
+#: ictuwp-plugin-tijdlijn.php:216
 msgctxt "labels"
 msgid "New timelines"
 msgstr ""
 
-#: rhswp-timeline.php:216
+#: ictuwp-plugin-tijdlijn.php:217
 msgctxt "labels"
 msgid "Show"
 msgstr ""
 
-#: rhswp-timeline.php:217
+#: ictuwp-plugin-tijdlijn.php:218
 msgctxt "labels"
 msgid "View timeline"
 msgstr ""
 
-#: rhswp-timeline.php:218
+#: ictuwp-plugin-tijdlijn.php:219
 msgctxt "labels"
 msgid "Search timeline"
 msgstr ""
 
-#: rhswp-timeline.php:219
+#: ictuwp-plugin-tijdlijn.php:220
 msgctxt "labels"
 msgid "Not found"
 msgstr ""
 
-#: rhswp-timeline.php:220
+#: ictuwp-plugin-tijdlijn.php:221
 msgctxt "labels"
 msgid "No timelines found in trash"
 msgstr ""
 
-#: rhswp-timeline.php:221
+#: ictuwp-plugin-tijdlijn.php:222
 msgctxt "labels"
 msgid "Parent"
 msgstr ""
 
-#: rhswp-timeline.php:226
+#: ictuwp-plugin-tijdlijn.php:227
 msgid "Timeline"
 msgstr ""
 
-#: rhswp-timeline.php:294
+#: ictuwp-plugin-tijdlijn.php:279
+#, php-format
+msgctxt "404 error"
+msgid "The timeline with ID \"%s\" and title \"%s\" is not (yet) published."
+msgstr ""
+
+#: ictuwp-plugin-tijdlijn.php:281
+#, php-format
+msgctxt "404 error"
+msgid "No timeline found with ID \"%s\"."
+msgstr ""
+
+#: ictuwp-plugin-tijdlijn.php:308
 msgid "Documentation"
 msgstr ""
 
-#: rhswp-timeline.php:295
+#: ictuwp-plugin-tijdlijn.php:309
 msgid "Timeline documentation"
 msgstr ""
 
-#: rhswp-timeline.php:331
+#: ictuwp-plugin-tijdlijn.php:352
 msgid "Section collapse"
 msgstr ""
 
-#: rhswp-timeline.php:332 rhswp-timeline.php:434 rhswp-timeline.php:502
+#: ictuwp-plugin-tijdlijn.php:353
 msgid "Section open"
 msgstr ""
 
-#: rhswp-timeline.php:381
+#: ictuwp-plugin-tijdlijn.php:388
 msgid "URL"
 msgstr ""
 
-#: rhswp-timeline.php:382
+#: ictuwp-plugin-tijdlijn.php:389
 msgid "New Window"
 msgstr ""
 
-#: rhswp-timeline.php:383
+#: ictuwp-plugin-tijdlijn.php:390
 msgid "Are you sure?"
 msgstr ""
 
-#: rhswp-timeline.php:549
+#: ictuwp-plugin-tijdlijn.php:566
 msgctxt "ACF-labels"
 msgid "Fields for timeline"
 msgstr ""
 
-#: rhswp-timeline.php:553
+#: ictuwp-plugin-tijdlijn.php:570
 msgctxt "ACF-labels"
 msgid "Introduction"
 msgstr ""
 
-#: rhswp-timeline.php:572
+#: ictuwp-plugin-tijdlijn.php:589
 msgctxt "ACF-labels"
 msgid "Timeline"
 msgstr ""
 
-#: rhswp-timeline.php:587
+#: ictuwp-plugin-tijdlijn.php:604
 msgctxt "ACF-labels"
 msgid "Add item"
 msgstr ""
 
-#: rhswp-timeline.php:591 rhswp-timeline.php:648
+#: ictuwp-plugin-tijdlijn.php:608
 msgctxt "ACF-labels"
-msgid "Title"
+msgid "Jaar"
 msgstr ""
 
-#: rhswp-timeline.php:610 rhswp-timeline.php:667
+#: ictuwp-plugin-tijdlijn.php:627
 msgctxt "ACF-labels"
-msgid "Intro"
+msgid "Toelichting"
 msgstr ""
 
-#: rhswp-timeline.php:629
+#: ictuwp-plugin-tijdlijn.php:646
 msgctxt "ACF-labels"
-msgid "Sub-items"
+msgid "Datums"
 msgstr ""
 
-#: rhswp-timeline.php:644
+#: ictuwp-plugin-tijdlijn.php:661
 msgctxt "ACF-labels"
-msgid "Add sub-item"
+msgid "Item toevoegen"
 msgstr ""
 
-#: rhswp-timeline.php:897 rhswp-timeline.php:941
+#: ictuwp-plugin-tijdlijn.php:665
+msgctxt "ACF-labels"
+msgid "Item (datum)"
+msgstr ""
+
+#: ictuwp-plugin-tijdlijn.php:684
+msgctxt "ACF-labels"
+msgid "Uitleg bij item"
+msgstr ""
+
+#: ictuwp-plugin-tijdlijn.php:923 ictuwp-plugin-tijdlijn.php:967
 msgid "Select and insert timeline"
 msgstr ""
 
-#: rhswp-timeline.php:899
+#: ictuwp-plugin-tijdlijn.php:925
 msgid "Insert timeline"
 msgstr ""
 
-#: rhswp-timeline.php:934
+#: ictuwp-plugin-tijdlijn.php:960
 msgid "Select a timeline for your post"
 msgstr ""
 
-#: rhswp-timeline.php:936
+#: ictuwp-plugin-tijdlijn.php:962
 msgid "Select timeline"
 msgstr ""
 
-#: rhswp-timeline.php:943
+#: ictuwp-plugin-tijdlijn.php:969
 msgid "No timelines available"
 msgstr ""
 
+#: tijdlijncpt.gutenberg-block.php:24
+msgid "tijdlijncpt block"
+msgstr ""
+
+#: tijdlijncpt.gutenberg-block.php:25
+msgid "Embed a timeline object."
+msgstr ""
+
+#: tijdlijncpt.gutenberg-block.php:55
+msgid "Select a timeline"
+msgstr ""
+
+#: tijdlijncpt.gutenberg-block.php:58
+msgid "Only published timelines can be embedded."
+msgstr ""
+
+#: tijdlijncpt.gutenberg-block.php:103
+msgid "Please select a tijdlijncpt."
+msgstr ""
+
 #. Plugin Name of the plugin/theme
-msgid "ICTU / WP timeline"
+msgid "ICTU / WP tijdlijn"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
