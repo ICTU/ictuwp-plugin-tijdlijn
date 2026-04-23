@@ -1,6 +1,7 @@
 #Changelog
 
 ## Version history
+* 1.3.1 - Added option to add video as a gutenberg block.
 * 1.2.1 - Code cleanup; script to open all sub-nodes.
 * 1.1.5 - Small PHP bug fix.
 * 1.1.4 - Bestanden hernoemd en 404-fouten verholpen.

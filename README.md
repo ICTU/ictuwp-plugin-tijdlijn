@@ -5,7 +5,7 @@ ICTU - Digitale Overheid WP - timelineplugin
 Paul van Buuren (paul@wbvb.nl)
 
 ## Current version
-* 1.2.1 - Code cleanup; script to open all sub-nodes.
+* 1.3.1 - Added option to add video as a gutenberg block.
 
 ## To do
 * Documentatie en instructie
