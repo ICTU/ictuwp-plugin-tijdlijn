@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ICTU / WP tijdlijn\n"
-"POT-Creation-Date: 2026-04-23 16:53+0200\n"
+"POT-Creation-Date: 2026-04-23 17:06+0200\n"
 "PO-Revision-Date: 2026-04-23 16:53+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -211,7 +211,7 @@ msgid "No timelines available"
 msgstr ""
 
 #: tijdlijncpt.gutenberg-block.php:24
-msgid "tijdlijncpt block"
+msgid "RHS timeline block"
 msgstr ""
 
 #: tijdlijncpt.gutenberg-block.php:25

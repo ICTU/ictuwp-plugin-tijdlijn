@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: RHSWP tijdlijn\n"
-"POT-Creation-Date: 2026-04-23 16:53+0200\n"
-"PO-Revision-Date: 2026-04-23 16:56+0200\n"
+"POT-Creation-Date: 2026-04-23 17:06+0200\n"
+"PO-Revision-Date: 2026-04-23 17:06+0200\n"
 "Last-Translator: Paul van Buuren <paul@wbvb.nl>\n"
 "Language-Team: \n"
 "Language: nl_NL\n"
@@ -18,6 +18,7 @@ msgstr ""
 "X-Poedit-KeywordsList: "
 "__;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
 #: ictuwp-plugin-tijdlijn.php:143
@@ -213,8 +214,8 @@ msgid "No timelines available"
 msgstr "Geen tijdlijnen ingevoerd"
 
 #: tijdlijncpt.gutenberg-block.php:24
-msgid "tijdlijncpt block"
-msgstr ""
+msgid "RHS timeline block"
+msgstr "RHS tijdlijn block"
 
 #: tijdlijncpt.gutenberg-block.php:25
 msgid "Embed a timeline object."

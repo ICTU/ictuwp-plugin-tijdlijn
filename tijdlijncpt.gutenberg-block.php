@@ -21,10 +21,10 @@ function tijdlijncpt_register_acf_block() {
 
 	acf_register_block_type( [
 		'name'            => 'tijdlijncpt',
-		'title'           => __( 'tijdlijncpt block', "rhswp-timeline" ),
+		'title'           => __( 'RHS timeline block', "rhswp-timeline" ),
 		'description'     => __( 'Embed a timeline object.', "rhswp-timeline" ),
 		'category'        => 'media',
-		'icon'            => 'video-alt3',
+		'icon'            => 'calendar-alt',
 		'keywords'        => [ 'tijdlijn', 'timeline', 'rhs' ],
 		'render_callback' => 'tijdlijncpt_render_block',
 		'enqueue_style'   => plugin_dir_url( __FILE__ ) . 'assets/css/block-editor-timeline.css?v=' . RHSWP_TIMELINE_VERSION,
