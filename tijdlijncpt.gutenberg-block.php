@@ -19,6 +19,8 @@ function tijdlijncpt_register_acf_block() {
 		return;
 	}
 
+	$dirulr = plugin_dir_url( __FILE__ ) . 'assets/css/block-editor-timeline.css?v=' . RHSWP_TIMELINE_VERSION;
+
 	acf_register_block_type( [
 		'name'            => 'tijdlijncpt',
 		'title'           => __( 'RHS timeline block', "rhswp-timeline" ),
@@ -27,7 +29,7 @@ function tijdlijncpt_register_acf_block() {
 		'icon'            => 'calendar-alt',
 		'keywords'        => [ 'tijdlijn', 'timeline', 'rhs' ],
 		'render_callback' => 'tijdlijncpt_render_block',
-		'enqueue_style'   => plugin_dir_url( __FILE__ ) . 'assets/css/block-editor-timeline.css?v=' . RHSWP_TIMELINE_VERSION,
+		'enqueue_style'   => $dirulr,
 		'supports'        => [
 			'align'  => false,
 			'anchor' => true,
