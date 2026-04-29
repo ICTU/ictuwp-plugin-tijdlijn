@@ -45,7 +45,6 @@ function tijdlijncpt_register_acf_fields() {
 		return;
 	}
 
-
 	acf_add_local_field_group( array(
 		'key'                   => 'group_69e8ae4bb2050',
 		'title'                 => 'tijdlijncpt Block Fields',
@@ -87,7 +86,6 @@ function tijdlijncpt_register_acf_fields() {
 		'allow_ai_access'       => false,
 		'ai_description'        => '',
 	) );
-
 
 }
 
