@@ -1,8 +1,8 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: ICTU / WP tijdlijn\n"
-"POT-Creation-Date: 2026-04-23 17:06+0200\n"
+"Project-Id-Version: ICTU / WP / DO - tijdlijn\n"
+"POT-Creation-Date: 2026-04-29 11:27+0200\n"
 "PO-Revision-Date: 2026-04-23 16:53+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -218,20 +218,20 @@ msgstr ""
 msgid "Embed a timeline object."
 msgstr ""
 
-#: tijdlijncpt.gutenberg-block.php:55
+#: tijdlijncpt.gutenberg-block.php:54
 msgid "Select a timeline"
 msgstr ""
 
-#: tijdlijncpt.gutenberg-block.php:58
+#: tijdlijncpt.gutenberg-block.php:57
 msgid "Only published timelines can be embedded."
 msgstr ""
 
-#: tijdlijncpt.gutenberg-block.php:103
+#: tijdlijncpt.gutenberg-block.php:101
 msgid "Please select a tijdlijncpt."
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-msgid "ICTU / WP tijdlijn"
+msgid "ICTU / WP / DO - tijdlijn"
 msgstr ""
 
 #. Plugin URI of the plugin/theme

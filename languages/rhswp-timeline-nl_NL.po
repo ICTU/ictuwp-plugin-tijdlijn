@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: RHSWP tijdlijn\n"
-"POT-Creation-Date: 2026-04-23 17:06+0200\n"
-"PO-Revision-Date: 2026-04-23 17:06+0200\n"
+"POT-Creation-Date: 2026-04-29 11:27+0200\n"
+"PO-Revision-Date: 2026-04-29 11:27+0200\n"
 "Last-Translator: Paul van Buuren <paul@wbvb.nl>\n"
 "Language-Team: \n"
 "Language: nl_NL\n"
@@ -221,21 +221,21 @@ msgstr "RHS tijdlijn block"
 msgid "Embed a timeline object."
 msgstr ""
 
-#: tijdlijncpt.gutenberg-block.php:55
+#: tijdlijncpt.gutenberg-block.php:54
 msgid "Select a timeline"
 msgstr "Selecteer een tijdlijn"
 
-#: tijdlijncpt.gutenberg-block.php:58
+#: tijdlijncpt.gutenberg-block.php:57
 msgid "Only published timelines can be embedded."
 msgstr "Alleen gepubliceerde tijdlijnen kunnen worden ingevoegd."
 
-#: tijdlijncpt.gutenberg-block.php:103
+#: tijdlijncpt.gutenberg-block.php:101
 msgid "Please select a tijdlijncpt."
 msgstr "Selecteer een tijdlijn."
 
 #. Plugin Name of the plugin/theme
-msgid "ICTU / WP tijdlijn"
-msgstr "ICTU / WP tijdlijn"
+msgid "ICTU / WP / DO - tijdlijn"
+msgstr "ICTU / WP / DO - tijdlijn"
 
 #. Plugin URI of the plugin/theme
 msgid ""

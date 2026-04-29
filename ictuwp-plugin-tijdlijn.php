@@ -1,8 +1,8 @@
 <?php
 /*
-// * ICTU / WP tijdlijn. 
+// * ICTU / WP / DO - tijdlijn. 
 // * 
-// * Plugin Name:         ICTU / WP tijdlijn
+// * Plugin Name:         ICTU / WP / DO - tijdlijn
 // * Plugin URI:          https://github.com/ICTU/digitale-overheid-wordpress-plugin-timelineplugin/
 // * Description:         Insert usable and accessible timelines in your post or page 
 // * Version:             1.3.2
