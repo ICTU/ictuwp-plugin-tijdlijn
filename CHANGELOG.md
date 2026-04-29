@@ -1,6 +1,7 @@
 #Changelog
 
 ## Version history
+* 1.3.3 - Small bugfixes: css file, name.
 * 1.3.2 - Small bugfixes: css file, translations, name.
 * 1.3.1 - Added option to add video as a gutenberg block.
 * 1.2.1 - Code cleanup; script to open all sub-nodes.
