@@ -105,7 +105,6 @@ function tijdlijncpt_render_block( $block, $content = '', $is_preview = false ) 
 		return;
 	}
 
-
 	// In preview mode only show an image of the timeline
 	if ( $is_preview ) {
 		$shortcode = '[timeline id="' . $post_id . '" preview="true"]';
@@ -113,7 +112,6 @@ function tijdlijncpt_render_block( $block, $content = '', $is_preview = false ) 
 		echo do_shortcode( $shortcode );
 		echo '</div>';
 
-		return;
 	} else {
 		// Generate the shortcode and output it
 		$shortcode = '[timeline id="' . $post_id . '"]';
@@ -121,6 +119,8 @@ function tijdlijncpt_render_block( $block, $content = '', $is_preview = false ) 
 		echo do_shortcode( $shortcode );
 
 	}
+
+	return;
 
 }
 
