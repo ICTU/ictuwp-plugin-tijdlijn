@@ -124,3 +124,4 @@ function tijdlijncpt_render_block( $block, $content = '', $is_preview = false ) 
 
 }
 
+
