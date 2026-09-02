@@ -2,12 +2,7 @@
 // * ICTU / WP timeline. 
 // * 
 // * Plugin Name:         ICTU / WP timeline
-// * Plugin URI:          https://github.com/ICTU/digitale-overheid-wordpress-plugin-timelineplugin/
-// * Description:         Insert usable and accessible timelines in your post or page 
-// * Version:             1.3.3
-// * Version description: Code cleanup; script to open all sub-nodes.
-// * Author:              Paul van Buuren
-// * Author URI:          https://wbvb.nl
+// * Plugin URI:          https://github.com/ICTU/ictuwp-plugin-tijdlijn/
  */
 
 

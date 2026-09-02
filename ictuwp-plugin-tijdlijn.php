@@ -3,9 +3,9 @@
 // * ICTU / WP / DO - tijdlijn. 
 // * 
 // * Plugin Name:         ICTU / WP / DO - tijdlijn
-// * Plugin URI:          https://github.com/ICTU/digitale-overheid-wordpress-plugin-timelineplugin/
+// * Plugin URI:          https://github.com/ICTU/ictuwp-plugin-tijdlijn/
 // * Description:         Insert usable and accessible timelines in your post or page 
-// * Version:             1.3.3
+// * Version:             1.3.4
 // * Version description: Small bugfixes: css file.
 // * Author:              Paul van Buuren
 // * Author URI:          https://wbvb.nl
@@ -36,7 +36,7 @@ if ( ! class_exists( 'RHSWP_timelineplugin' ) ) :
         /**
          * @var string
          */
-        public $version = '1.3.3';
+        public $version = '1.3.4';
 
 
         /**
@@ -306,7 +306,7 @@ if ( ! class_exists( 'RHSWP_timelineplugin' ) ) :
             $screen->add_help_tab( array(
                             'id'      => 'documentation',
                             'title'   => __( 'Documentation', "rhswp-timeline" ),
-                            'content' => "<p><a href='https://github.com/ICTU/digitale-overheid-wordpress-plugin-timelineplugin/documentation/' target='blank'>" . __( 'Timeline documentation', "rhswp-timeline" ) . "</a></p>",
+                            'content' => "<p><a href='https://github.com/ICTU/ictuwp-plugin-tijdlijn/documentation/' target='blank'>" . __( 'Timeline documentation', "rhswp-timeline" ) . "</a></p>",
                     )
             );
         }

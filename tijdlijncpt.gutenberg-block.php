@@ -2,7 +2,7 @@
 /**
  * Gutenberg block for tijdlijncpt
  * Description: Gutenberg block to embed a tijdlijncpt via ACF and shortcode.
- * Version: 1.3.3
+ * Version: 1.3.4
  * Version description: Add possibility to add as Gutenberg block.
  * Author: Paul van Buuren
  * Text Domain: rhswp-timeline

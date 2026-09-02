@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ICTU / WP / DO - tijdlijn\n"
-"POT-Creation-Date: 2026-04-29 11:27+0200\n"
-"PO-Revision-Date: 2026-04-23 16:53+0200\n"
+"POT-Creation-Date: 2026-09-02 13:56+0200\n"
+"PO-Revision-Date: 2026-09-02 13:48+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -210,23 +210,23 @@ msgstr ""
 msgid "No timelines available"
 msgstr ""
 
-#: tijdlijncpt.gutenberg-block.php:24
+#: tijdlijncpt.gutenberg-block.php:26
 msgid "RHS timeline block"
 msgstr ""
 
-#: tijdlijncpt.gutenberg-block.php:25
+#: tijdlijncpt.gutenberg-block.php:27
 msgid "Embed a timeline object."
 msgstr ""
 
-#: tijdlijncpt.gutenberg-block.php:54
+#: tijdlijncpt.gutenberg-block.php:56
 msgid "Select a timeline"
 msgstr ""
 
-#: tijdlijncpt.gutenberg-block.php:57
+#: tijdlijncpt.gutenberg-block.php:59
 msgid "Only published timelines can be embedded."
 msgstr ""
 
-#: tijdlijncpt.gutenberg-block.php:101
+#: tijdlijncpt.gutenberg-block.php:103
 msgid "Please select a tijdlijncpt."
 msgstr ""
 
@@ -235,8 +235,7 @@ msgid "ICTU / WP / DO - tijdlijn"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid ""
-"https://github.com/ICTU/digitale-overheid-wordpress-plugin-timelineplugin/"
+msgid "https://github.com/ICTU/ictuwp-plugin-tijdlijn/"
 msgstr ""
 
 #. Description of the plugin/theme
