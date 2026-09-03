@@ -1,6 +1,7 @@
 #Changelog
 
 ## Version history
+* 1.3.5 - (removed debug style).
 * 1.3.4 - Margin top for container.
 * 1.3.3 - Small bugfixes: css file, name.
 * 1.3.2 - Small bugfixes: css file, translations, name.

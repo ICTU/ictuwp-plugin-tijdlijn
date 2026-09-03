@@ -5,7 +5,7 @@ ICTU - Digitale Overheid WP - timelineplugin
 Paul van Buuren (paul@wbvb.nl)
 
 ## Current version
-* 1.3.4 - Margin top for container.
+* 1.3.5 - (removed debug style).
 
 ## To do
 * Documentatie en instructie
